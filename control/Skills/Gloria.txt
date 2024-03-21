@@ -1,0 +1,12 @@
+############ GLORIA ################
+useSelf_skill Gloria {
+	lvl 5
+	sp > 10%
+	whenStatusInactive Gloria
+}
+partySkill Gloria {
+	lvl 5
+	sp > 10%
+	target_whenStatusInactive Gloria
+}
+############

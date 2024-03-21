@@ -1,0 +1,14 @@
+############ PNEUMA ##################
+useSelf_skill Pneuma {
+	lvl 1
+	whenNotGround Pneuma
+	defendMonsters Antique Firelock, Raydric Archer, Gargoyle,Bloody Knight,Orc Archers,Skel Archer
+}
+partySkill Pneuma {
+	lvl 1
+	sp > 20%
+	target_whenNotGround Pneuma
+	target_defendMonsters Antique Firelock, Raydric Archer, Gargoyle,Bloody Knight,Orc Archers,Skel Archer
+	target_isNotJob Acolyte, Priest, High Priest
+}
+########################################

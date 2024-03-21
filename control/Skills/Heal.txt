@@ -1,0 +1,12 @@
+################### Heal #####################
+useSelf_skill Heal {
+	lvl 10
+	hp < 90%
+	sp > 10%
+}
+partySkill Heal {
+	lvl 10
+	target_hp < 100%
+	target_isNotJob Acolyte, Priest, High Priest
+}
+#########################################

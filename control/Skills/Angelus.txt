@@ -1,0 +1,8 @@
+########## ANGELUS ###########
+partySkill Angelus {
+	lvl 10
+	sp > 20%
+	target_whenStatusInactive Angelus
+#	isSelfSkill 1
+}
+#############################

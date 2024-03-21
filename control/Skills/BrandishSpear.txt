@@ -1,0 +1,10 @@
+attackSkillSlot Brandish Spear {
+	lvl 10
+	aggressives > 3
+	sp > 25%
+	dist 1.5
+#	monsters Nine Tail
+	notMonsters poring, poporing, lunatic, fabre, poison spore,roda frog, pupa, chonchon,creamy, marin, cookie, drops, cruiser
+	disabled 0
+#	maxUses 1
+}

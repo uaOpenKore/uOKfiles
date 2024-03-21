@@ -1,0 +1,8 @@
+partySkill Aspersio {
+	lvl 5
+	sp > 50%
+	target_whenStatusInactive Aspersio
+	inInventory Holy Water
+	target_isNotJob Acolyte, Priest, High Priest
+	notInTown 1
+}

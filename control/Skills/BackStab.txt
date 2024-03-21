@@ -1,0 +1,7 @@
+attackSkillSlot Back Stab {
+	lvl 10
+	sp > 15
+	inLockOnly 1
+	maxAttempts 2
+	maxUses 1
+}

@@ -1,0 +1,13 @@
+############ CURE ##################
+useSelf_skill Cure {
+	lvl 1
+	whenStatusActive Cursed, Blinded, Chaos, Silenced
+	sp > 10%
+}
+partySkill Cure {
+	lvl 1
+	target_whenStatusActive Cursed, Blinded, Chaos, Silenced
+	sp > 10%
+	target_isNotJob Acolyte, Priest, High Priest
+}
+###################################

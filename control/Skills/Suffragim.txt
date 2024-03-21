@@ -1,0 +1,9 @@
+########### SUFFRAGIM ################
+partySkill Suffragium {
+	lvl 3
+	sp > 50%
+	target_whenStatusInactive Suffragium
+	target_isJob Acolyte, Priest, High Priest
+	disabled 1
+}
+###############################

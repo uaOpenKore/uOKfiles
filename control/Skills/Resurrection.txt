@@ -1,0 +1,4 @@
+partySkill Resurrection {
+	lvl 4
+	target_dead 1
+}

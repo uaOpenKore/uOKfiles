@@ -1,0 +1,4 @@
+useSelf_item Green Herb {
+	whenStatusInactive Poisoned
+	timeout 1
+}

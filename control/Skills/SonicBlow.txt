@@ -1,0 +1,20 @@
+attackSkillSlot Sonic Blow {
+	lvl 10
+	sp > 10%
+	aggressives > 1
+#	monsters Greatest General
+	notMonsters poring, poporing, lunatic, fabre, poison spore,roda frog, pupa, chonchon, creamy
+}
+
+attackSkillSlot Sonic Blow {
+	lvl 10
+	sp > 5%
+	target_whenStatusActive Lex Aeterna
+}
+
+attackSkillSlot Sonic Blow {
+	lvl 10
+	sp > 60%
+	notMonsters poring, poporing, lunatic, fabre, poison spore,roda frog, pupa, chonchon, creamy
+	maxUses 2
+}

@@ -1,0 +1,13 @@
+############## KYRIE ELEISON ##############
+useSelf_skill Kyrie Eleison {
+	lvl 10
+	sp > 10%
+	whenStatusInactive Kyrie Eleison
+}
+partySkill Kyrie Eleison {
+	lvl 10
+	sp > 50%
+	target_whenStatusInactive Kyrie Eleison
+	target_isNotJob Acolyte, Priest, High Priest
+}
+##########################################

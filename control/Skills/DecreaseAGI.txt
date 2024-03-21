@@ -1,0 +1,5 @@
+attackSkillSlot Decrease AGI {
+	lvl 10
+	sp > 10%
+	target_whenStatusInactive Decrease AGI
+}

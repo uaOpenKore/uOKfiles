@@ -1,0 +1,16 @@
+[uaRO]
+ip play.uaro.kiev.ua
+port 16900
+master_version 0
+version 19
+
+#for OpenKore 2.0.x use serverType 9
+#serverType 9
+#for OpenKore 2.1.x use serverType 5
+#serverType 5
+
+serverEncoding Western
+#addTableFolders Old
+#charBlockSize 106
+#recvpackets recvpackets-uaro.txt
+

@@ -1,0 +1,6 @@
+attackSkillSlot Provoke {
+	lvl 10
+	sp > 10
+	maxUses 1
+	inLockOnly 1
+}

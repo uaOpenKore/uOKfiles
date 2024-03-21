@@ -1,0 +1,5 @@
+useSelf_skill Detoxify {
+	lvl 1
+	sp > 10
+	whenStatusActive Poison
+}

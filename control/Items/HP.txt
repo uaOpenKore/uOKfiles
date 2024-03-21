@@ -1,0 +1,3 @@
+useSelf_item Meat, Apple, Carrot, Orange, Potato, Red Herb, Red Potion, Yellow Herb, Yellow Potion {
+	hp < 90%
+}

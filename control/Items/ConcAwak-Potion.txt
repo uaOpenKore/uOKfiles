@@ -1,0 +1,6 @@
+useSelf_item Concentration Potion, Awakening Potion {
+	whenStatusInactive Concentration Potion, Awakening Potion
+	inLockOnly 1
+	notWhileSitting 1
+	timeout 1
+}

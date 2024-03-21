@@ -1,0 +1,5 @@
+useSelf_item Butterfly Wing {
+	hp < 15%
+	notInTown 1
+	inLockOnly 1
+}

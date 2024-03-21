@@ -1,0 +1,5 @@
+attackSkillSlot Lex Aeterna {
+	lvl 1
+	whenFollowing 1
+	target_whenStatusInactive Lex Aeterna
+}

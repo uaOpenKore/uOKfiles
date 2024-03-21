@@ -1,0 +1,6 @@
+useSelf_skill Endure {
+	lvl 10
+	sp > 10%
+	whenStatusInactive Endure
+	onAction attack
+}

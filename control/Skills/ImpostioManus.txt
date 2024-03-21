@@ -1,0 +1,8 @@
+############### IMPOSITIO MANUS ################
+partySkill Impositio Manus {
+	lvl 5
+	sp > 50%
+	target_whenStatusInactive Impositio Manus
+	target_isNotJob Acolyte, Priest, High Priest
+}
+###############################################

@@ -1,0 +1,16 @@
+attackSkillSlot Envenom {
+	lvl 10
+	dist < 2
+	sp > 20
+	inLockOnly 1
+	notMonsters Skel Soldier, Skel Archer, Poison Spore, Poporing, Antique Firelock
+	maxUses 1
+	target_whenStatusInactive Poisoned
+	disabled 0
+}
+attackSkillSlot Envenom {
+	lvl 10
+	sp > 20
+	dist < 2
+	monsters Horong
+}

@@ -1,0 +1,13 @@
+############# STATUS RECOVERY ##############
+useSelf_skill Status Recovery {
+	lvl 10
+	whenStatusActive Frozen, Stone Curse, Stun
+	sp > 25
+}
+partySkill Status Recovery {
+	lvl 10
+	sp > 25
+	target_whenStatusActive Frozen, Stone Curse, Stun
+	target_isNotJob Acolyte, Priest, High Priest
+}
+##########################################

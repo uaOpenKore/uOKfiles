@@ -1,0 +1,6 @@
+useSelf_skill Ruwach {
+	lvl 1
+	whenStatusInactive Ruwach
+	sp > 10%
+	notInTown 1
+}

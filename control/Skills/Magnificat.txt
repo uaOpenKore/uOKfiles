@@ -1,0 +1,14 @@
+############### MAGNIFICAT #######
+partySkill Magnificat {
+	lvl 5
+	sp > 40%
+	target_whenStatusInactive Magnificat
+	isSelfSkill 1
+	target_isNotJob Acolyte, Priest, High Priest
+}
+useSelf_skill Magnificat {
+	lvl 5
+	sp > 45
+	whenStatusInactive Magnificat
+}
+################################

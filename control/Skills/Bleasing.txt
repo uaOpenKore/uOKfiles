@@ -1,0 +1,13 @@
+################## BLEASING ##################
+useSelf_skill Blessing {
+	lvl 10
+	sp > 10%
+	whenStatusInactive Blessing
+}
+partySkill Blessing {
+	lvl 10
+	sp > 50%
+	target_whenStatusInactive Blessing
+	target_isNotJob Acolyte, Priest, High Priest
+}
+#############################################

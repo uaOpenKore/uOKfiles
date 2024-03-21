@@ -1,0 +1,6 @@
+attackSkillSlot Holy Light {
+	lvl 1
+	sp > 10%
+	monsters
+	
+}

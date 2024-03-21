@@ -1,0 +1,13 @@
+partySkill Assumptio {
+	lvl 10
+	sp > 50%
+	disabled 1
+	target_whenStatusInactive Assumtio
+	target_isNotJob Acolyte, Priest, High Priest
+}
+useSelf_skill Assumptio {
+	lvl 10
+	sp > 20%
+	disabled 1
+	whenStatusInactive Assumtio
+}

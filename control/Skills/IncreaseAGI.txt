@@ -1,0 +1,13 @@
+###############  AGI  #################
+useSelf_skill Increase AGI {
+	lvl 10
+	sp > 20%
+	whenStatusInactive Increase AGI
+}
+partySkill Increase AGI {
+	lvl 10
+	sp > 50%
+	target_whenStatusInactive Increase AGI
+	target_isNotJob Acolyte, Priest, High Priest
+}
+##########################
