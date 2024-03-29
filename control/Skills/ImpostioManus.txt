@@ -1,4 +1,4 @@
-############### IMPOSITIO MANUS ################
+############### IMPOSITIO MANUS uOK207 ################
 partySkill Impositio Manus {
 	lvl 5
 	sp > 50%
@@ -6,3 +6,13 @@ partySkill Impositio Manus {
 	target_isNotJob Acolyte, Priest, High Priest
 }
 ###############################################
+
+############# IMPOSITIO MANUS uOK210 ################
+rtySkill PR_IMPOSITIO {
+      lvl 5
+      sp > 50%
+      target_whenStatusInactive EFST_IMPOSITIO
+      target_isNotJob Acolyte, Priest, High Priest
+
+#############################################
+
