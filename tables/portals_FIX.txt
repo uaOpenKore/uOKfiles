@@ -3,3 +3,6 @@ ama_dun01 229 7 ama_in02 119 181 0 c r0 n
 
 yuno_fild03 20 156 yuno_fild04 374 149
 yuno_fild04 374 149 yuno_fild03 21 156
+
+yuno_fild04 42 367 yuno_fild05 59 30
+yuno_fild05 59 30 yuno_fild04 42 367
