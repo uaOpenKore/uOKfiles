@@ -1,4 +1,4 @@
-###############  AGI  #################
+###############  AGI uOK207 #################
 useSelf_skill Increase AGI {
 	lvl 10
 	sp > 20%
@@ -11,3 +11,18 @@ partySkill Increase AGI {
 	target_isNotJob Acolyte, Priest, High Priest
 }
 ##########################
+
+###############  AGI uOK210 #################
+useSelf_skill AL_INCAGI {
+        lvl 10
+        sp > 20%
+        whenStatusInactive EFST_INC_AGI
+}
+partySkill AL_INCAGI {
+        lvl 10
+        sp > 50%
+        target_whenStatusInactive EFST_INC_AGI
+        target_isNotJob Acolyte, Priest, High Priest
+}
+##########################
+
