@@ -1,4 +1,4 @@
-############### MAGNIFICAT #######
+############### MAGNIFICAT uOK207 #######
 partySkill Magnificat {
 	lvl 5
 	sp > 40%
@@ -12,3 +12,22 @@ useSelf_skill Magnificat {
 	whenStatusInactive Magnificat
 }
 ################################
+
+############### MAGNIFICAT uOK210 #######
+
+partySkill PR_MAGNIFICAT {
+        lvl 5
+        sp > 40%
+        target_whenStatusInactive EFST_MAGNIFICAT
+        isSelfSkill 1
+        target_isNotJob Acolyte, Priest, High Priest
+}
+
+useSelf_skill PR_MAGNIFICAT {
+        lvl 5
+        sp > 45
+        whenStatusInactive EFST_MAGNIFICAT
+}
+
+################################
+
