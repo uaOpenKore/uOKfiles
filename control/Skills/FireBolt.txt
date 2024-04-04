@@ -1,0 +1,14 @@
+attackSkillSlot Fire Bolt {
+	lvl 4
+	dist 9,8,7,6,5,4
+	sp > 10%
+	monsters Mandragora
+	maxUses 1
+}
+
+attackSkillSlot Fire Bolt {
+	lvl 1
+	dist 9,8,7,6,5,4
+	sp > 10%
+	monsters Mandragora
+}
