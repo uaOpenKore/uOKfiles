@@ -10,4 +10,7 @@ yuno_fild05 59 30 yuno_fild04 42 367
 einbroch 232 272 einbech 43 215 200 c c r0 n
 einbech 39 215 einbroch 226 276 200 c r0 n
 
+yuno 195 138 yuno_in01 32 33
+yuno_in01 32 34 yuno 195 138
+
 
