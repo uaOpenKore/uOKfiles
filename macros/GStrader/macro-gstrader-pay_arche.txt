@@ -179,7 +179,7 @@ if (@storamount(Concentration Potion) < 200 ) {
  goto startCheck
  }
 
-if (@storamount(Concentration Potion) < 100 ) {
+if (@storamount(Fire Arrow Quiver) < 100 ) {
  do storage close
  call _b_R --2 200
  goto startCheck
