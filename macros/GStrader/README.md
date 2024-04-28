@@ -28,3 +28,5 @@ This script (Bash for Linux) serves the files itemsFselling.txt and itemsFexclud
     Removes duplicates
     Deletes strings that strictly coincide with the strings in the itemsFexcluding.txt file The itemsFexcluding.txt file is used to protect loot
 
+note:
+https://forums.openkore.com/viewtopic.php?f=32&t=195319
