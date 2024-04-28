@@ -1,3 +1,19 @@
+##### Red Potion = 8E 01 F5 01 00 00 00 00 00 00
+##### Yellow Potion = 8E 01 F7 01 00 00 00 00 00 00
+##### White Potion = 8E 01 F8 01 00 00 00 00 00 00
+##### Blue Potion = 8E 01 F9 01 00 00 00 00 00 00
+##### Adonyne = 8E 01 5D 02 00 00 00 00 00 00
+##### Aloevera = 8E 01 5E 02 00 00 00 00 00 00
+##### Red Slim = 8E 01 21 02 00 00 00 00 00 00
+##### Yellow Slim = 8E 01 22 02 00 00 00 00 00 00
+##### White Slim = 8E 01 23 02 00 00 00 00 00 00
+##### Alcohol = 8E 01 CA 03 00 00 00 00 00 00
+##### Fire Bottle = 8E 01 DF 1B 00 00 00 00 00 00
+##### Acid Bottle = 8E 01 E0 1B 00 00 00 00 00 00
+##### Plant Bottle = 8E 01 E1 1B 00 00 00 00 00 00
+##### Mine Bottle = 8E 01 E2 1B 00 00 00 00 00 00
+##### Coating Wax = 8E 01 E3 1B 00 00 00 00 00 00
+
 sub _s_readFs {
  my ($fileN) = @_;
  my $lll;
@@ -278,6 +294,7 @@ call _h_i
 call _s_e
 call _s_i
 call _buy_i
+call _create_potions
 call _ref_start
 do autostorage
 do conf lockMap pay_dun01
@@ -313,6 +330,63 @@ if (@storamount(Medicine Bowl) < 1000 ) {
   call _b_R --18 2000
   goto startCheck
  }
+}
+
+macro _create_potions {
+set exclusive 1
+$lifs = _s_readFs("potionsFcreating.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do storage close
+do c @gstorage
+pause 1
+while ($countI > 0) as loopA
+ $item = _s_getItem("$lifs")
+ $lifs = _s_delItem("$lifs")
+ :repeatCP
+ if ($.sp < 100) goto endCP
+ if ("$item" == "Blue Potion") {
+  if (@storage(Blue Herb) < 100 && @storage(Scell) < 100 && @storage(Empty Potion Bottle) < 100 && @storage(Medicine Bowl) < 100 ) goto endLoopA
+   do storage add Red Herb
+   do storage add Yellow Herb
+   do storage add White Herb
+   do storage get Potion Creation Guide
+   do storage get Blue Herb 100
+   do storage get Scell 100
+   do storage get Empty Potion Bottle 100
+   do storage get Medicine Bowl 100
+   do storage close
+   do c @storage
+   pause 1
+   do storage get Potion Creation Guide
+   pause 1
+   do storage close
+   while ($.sp > 5 && @inventory(Empty Potion Bottle) > 1) as loopSkill
+     do ss 228 10
+     pause 1
+     do send 8E 01 F9 01 00 00 00 00 00 00
+     pause 1
+    end loopSkill
+   do c @storage
+   pause 1
+   do storage add Potion Creation Guide
+   do storage close
+   do c @gstorage
+   pause 1
+   do storage add Blue Herb
+   do storage add Scell
+   do storage add Empty Potion Bottle
+   do storage add Medicine Bowl
+   do storage add Blue Potion
+   goto repeatCP
+  }
+  :endLoopA
+end loopA
+:endCP
+do c @storage
+pause 1
+do storage add Potion Creation Gude 1
+do storage close
 }
 
 automacro _Auto_GS {
