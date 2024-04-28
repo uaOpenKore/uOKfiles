@@ -1,9 +1,4 @@
-automacro AutoTradeGS {
- exclusive 1
- delay 3
- timeout 6000
- call StarGS
-}
+
 
 sub _s_readFs {
  my ($fileN) = @_;
@@ -112,9 +107,9 @@ do storage close
 
 macro _b_meat {
 set exclusive 1
-$c = 20
+$c = 30
 while ($c > 0) as loop
-do talknpc 140 124 b b0,300 e
+do talknpc 140 124 b b0,150 e
 do c @gstorage
 pause 1
 do storage add @inventory(Meat)
@@ -192,6 +187,8 @@ if (@storamount(Arrow) < 20000 ) {
  goto startCheck
  }
 
+call _buy_ci
+
 do sell cancel
 do storage close
 do move 82 45
@@ -262,3 +259,39 @@ pause 2
 do move pay_dun00
 #do timeout macro_delay .1
 }
+
+macro _buy_ci {
+set exclusive 1
+:startCheck
+do autostorage
+pause 1
+do autostorage
+pause 2
+do c @gstorage
+pause 1
+if (@storamount(Empty Potion Bottle) < 1000 ) {
+  do storage close
+  call _b_R --19 2000
+  goto startCheck
+ }
+
+if (@storamount(Scell) < 1000 ) {
+  do storage close
+  call _b_R --20 2000
+  goto startCheck
+ }
+
+if (@storamount(Medicine Bowl) < 1000 ) {
+  do storage close
+  call _b_R --18 2000
+  goto startCheck
+ }
+}
+
+automacro whoreGS {
+exclusive 1
+delay 3
+timeout 6000
+call StarGS
+}
+
