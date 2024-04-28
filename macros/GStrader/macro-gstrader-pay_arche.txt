@@ -1,0 +1,264 @@
+automacro AutoTradeGS {
+ exclusive 1
+ delay 3
+ timeout 6000
+ call StarGS
+}
+
+sub _s_readFs {
+ my ($fileN) = @_;
+ my $lll;
+ my @aa = ();
+ if (open(FILE, "<:utf8", Settings::getControlFilename("$fileN"))) {
+  while (<FILE>) {
+  s/^\r//g;s/\x{FEFF}//g; chomp;
+  if (/^[0-9a-zA-Z]/) {
+   push @aa, $_;
+   if (!$lll) {$lll = $_; next;}
+   $lll = $lll . "," . $_ ;
+   next ;
+   }
+  }
+  close FILE
+ }
+return @aa . "," . $lll;
+}
+
+sub _s_getItem {
+ my ($str) = @_;
+return substr($str,0,index($str,","));
+}
+
+sub _s_delItem {
+ my ($str) = @_;
+return substr($str,(index($str,",") +1 ));
+}
+
+macro _h_i {
+set exclusive 1
+$lifs = _s_readFs("itemsFholding.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do c @gstorage
+pause 1
+while ($countI > 0) as loopA
+ $item = _s_getItem("$lifs")
+ $lifs = _s_delItem("$lifs")
+ while (@storamount($item) > 29000) as loopB
+   while ( @eval($.weight/$.maxweight) < "0.8" && @storamount($item) > 28000) as loopC
+    do storage get @storage($item) 90
+   end loopC
+  do storage close
+  do talknpc 140 124 s e
+  do sell @inventory($item) @invamount($item)
+  do sell done
+  do c @gstorage
+  pause 1
+ end loopB
+ $countI--
+end loopA
+do storage close
+}
+
+macro _s_i {
+set exclusive 1
+$lifs = _s_readFs("itemsFselling.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do c @gstorage
+pause 1
+while ($countI > 0) as loopA
+ $item = _s_getItem("$lifs")
+ $lifs = _s_delItem("$lifs")
+ while (@storamount($item) > 0) as loopB
+   while ( @eval($.weight/$.maxweight) < "0.8" && @storamount($item) > 0) as loopC
+    do storage get @storage($item) 90
+   end loopC
+  do storage close
+  do talknpc 140 124 s e
+  do sell @inventory($item) @invamount($item)
+  do sell done
+  do c @gstorage
+  pause 1
+ end loopB
+ $countI--
+end loopA
+do storage close
+}
+
+macro _s_e {
+set exclusive 1
+$lifs = _s_readFs("equipsFselling.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do c @gstorage
+pause 1
+while ($countI > 0) as loopA
+ $item = _s_getItem("$lifs")
+ $lifs = _s_delItem("$lifs")
+ while (@storage($item) > "-1") as loopB
+    do storage get @storage($item)
+  do storage close
+  do talknpc 140 124 s e
+  do sell @inventory($item) @invamount($item)
+  do sell done
+  do c @gstorage
+  pause 1
+ end loopB
+ $countI--
+end loopA
+do storage close
+}
+
+macro _b_meat {
+set exclusive 1
+$c = 20
+while ($c > 0) as loop
+do talknpc 140 124 b b0,300 e
+do c @gstorage
+pause 1
+do storage add @inventory(Meat)
+do storage close
+pause 1
+$c--
+end loop
+}
+
+macro _b_R {
+set exclusive 1
+do talknpc 87 34 b b$.param1,$.param2 e
+do c @gstorage
+pause 1
+do storage add @inventory(Butterfly Wing)
+do storage close
+pause 1
+}
+
+macro _buy_i {
+set exclusive 1
+:startCheckFirst
+do c @gstorage
+pause 1
+if (@storamount(Meat) < 20000 ) {
+ do storage close
+ call _b_meat
+ goto startCheckFirst
+ }
+do tele 2
+pause 1
+do move payon_in02 82 36
+:startCheck
+do storage close
+pause 1
+do autostorage
+pause 1
+do c @gstorage
+pause 1
+
+if (@storamount(Butterfly Wing) < 1000 ) {
+ do storage close
+ call _b_R --14 300
+ goto startCheck
+ }
+
+if (@storamount(Fly Wing) < 2000 ) {
+ do storage close
+ call _b_R --13 500
+ goto startCheck
+ }
+
+if (@storamount(Awakening Potion) < 200 ) {
+ do storage close
+ call _b_R --17 100
+ goto startCheck
+ }
+
+if (@storamount(Concentration Potion) < 200 ) {
+ do storage close
+ call _b_R --16 100
+ goto startCheck
+ }
+
+if (@storamount(Concentration Potion) < 100 ) {
+ do storage close
+ call _b_R --2 200
+ goto startCheck
+ }
+
+
+if (@storamount(Arrow) < 20000 ) {
+ do storage close
+ call _b_R --0 4000
+ goto startCheck
+ }
+
+do sell cancel
+do storage close
+do move 82 45
+}
+
+macro _ref_start {
+set exclusive 1
+do tele 2
+pause 1
+do move payon 151 175
+call _ref_i --Oridecon
+pause 1
+call _ref_i --Elunium
+do tele 2
+pause 1
+}
+
+macro _ref_i {
+set exclusive 1
+do c @gstorage
+pause 1
+while ( @storamount(Rough $.param1) > 4 && @storamount($.param1) < 29000 ) as loopA
+do storage close
+pause 1
+do c @gstorage
+pause 1
+do storage get @storage(Rough $.param1) 100
+do storage close
+pause 1
+while ( @invamount(Rough $.param1) > 4 ) as loopB
+log loopB 1
+ if ( "$.param1" == "Oridecon" ) {
+log loopB 2
+   do talknpc 137 178 r0
+  }else{
+log loopB 3
+   do talknpc 137 178 r1
+  }
+log loopB 4
+end loopB
+do c @gstorage
+pause 1
+do storage add @inventory($.param1)
+do storage add @inventory(Rough $.param1)
+do storage close
+pause 1
+end loopA
+}
+
+macro StarGS {
+do timeout macro_delay .01
+set exclusive 1
+do conf lockMap pay_arche
+pause 1
+do tele 2
+pause 1
+do move pay_arche 109 134
+do autostorage
+call _h_i
+call _s_e
+call _s_i
+call _buy_i
+call _ref_start
+do autostorage
+do conf lockMap pay_dun01
+do tele 2
+pause 2
+do move pay_dun00
+#do timeout macro_delay .1
+}
