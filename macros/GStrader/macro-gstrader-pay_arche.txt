@@ -1,5 +1,3 @@
-
-
 sub _s_readFs {
  my ($fileN) = @_;
  my $lll;
@@ -180,10 +178,39 @@ if (@storamount(Fire Arrow Quiver) < 1000 ) {
  goto startCheck
  }
 
+if (@storamount(Crystal Arrow Quiver) < 1000 ) {
+ do storage close
+ call _b_R --3 100
+ goto startCheck
+ }
+
+if (@storamount(Wind Arrow Quiver) < 1000 ) {
+ do storage close
+ call _b_R --4 100
+ goto startCheck
+ }
+
+if (@storamount(Stone Arrow Quiver) < 1000 ) {
+ do storage close
+ call _b_R --5 100
+ goto startCheck
+ }
+
+if (@storamount(Magnifier) < 1000 ) {
+ do storage close
+ call _b_R --6 400
+ goto startCheck
+ }
 
 if (@storamount(Arrow) < 20000 ) {
  do storage close
  call _b_R --0 4000
+ goto startCheck
+ }
+
+if (@storamount(Silver Arrow) < 20000 ) {
+ do storage close
+ call _b_R --1 4000
  goto startCheck
  }
 
@@ -288,7 +315,7 @@ if (@storamount(Medicine Bowl) < 1000 ) {
  }
 }
 
-automacro whoreGS {
+automacro _Auto_GS {
 exclusive 1
 delay 3
 timeout 6000
