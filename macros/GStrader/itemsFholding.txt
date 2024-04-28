@@ -1,0 +1,75 @@
+#Example: list of items that are sold when the amount of stack is highAlcohol
+Amethyst
+Andre Card
+Aquamarine
+Blue Gemstone
+Chonchon Card
+Crystal Blue
+Detrimindexta
+Elunium
+Familiar Card
+Geographer Card
+Great Nature
+Green Live
+Harpy Feather
+Magnolia Card
+Marine Sphere Card
+Matyr Card
+Merman Card
+Mystic Frozen
+Nine Tails
+Obeaune Card
+Oridecon
+Phen Card
+Poporing Card
+Poring Card
+Red Blood
+Red Gemstone
+Rough Elunium
+Rough Oridecon
+Skeleton Card
+Steel
+Steel Chonchon Card
+Wind of Verdure
+Yellow Gemstone
+Yoyo Card
+Zombie Card
+Yellow Herb
+Red Herb
+Red Potion
+Yellow Potion
+Blue Potion
+White Potion
+Grape
+Green Herb
+Blue Herb
+White Herb
+Orange Potion
+Panacea
+Royal Jelly
+Aloe Leaflet
+Grape Juice
+Lemon
+Fly Wing
+Butterfly Wing
+Old Blue Box
+Dead Branch
+Magnifier
+Worm Out Scroll
+Concentration Potion
+Awakening Potion
+Authoritative Badge
+Fantastic Cooking Kit
+Arrow
+Fire Arrow
+Yellow Gemstone
+Red Gemstone
+Blue Gemstone
+Empty Bottle
+Scell
+Empty Potion Bottle
+Medicine Bowl
+Heart of Mermaid
+Harpy Feather
+Green Potion
+
