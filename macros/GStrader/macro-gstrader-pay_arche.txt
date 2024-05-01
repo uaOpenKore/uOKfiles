@@ -361,7 +361,7 @@ while ($countI > 0) as loopA
    do storage get Potion Creation Guide
    pause 1
    do storage close
-   while ($.sp > 5 && @inventory(Empty Potion Bottle) > 1) as loopSkill
+   while ($.sp > 5 && @inventory(Empty Potion Bottle) > 0 && @inventory(Blue Herb) > 0 && @inventory(Scell) > 0 && @inventory(Medicine Bowl) > 0 ) as loopSkill
      do ss 228 10
      pause 1
      do send 8E 01 F9 01 00 00 00 00 00 00
