@@ -13,16 +13,17 @@
 ##### Plant Bottle = 8E 01 E1 1B 00 00 00 00 00 00
 ##### Mine Bottle = 8E 01 E2 1B 00 00 00 00 00 00
 ##### Coating Wax = 8E 01 E3 1B 00 00 00 00 00 00
-######### Sage Elemental Converter #####
-### Water = 8E 01 53 2F 00 00 00 00 00 00
-### Fire = 8E 01 52 2F 00 00 00 00 00 00
-### Earth = 8E 01 54 2F 00 00 00 00 00 00
-### Wind = 8E 01 55 2F 00 00 00 00 00 00
 ######### NVM the resist potions i got it from some thai site
 ### Fireproof Potion = 8E 01 56 2F 00 00 00 00 00 00
 ### Coldproof Potion = 8E 01 57 2F 00 00 00 00 00 00
 ### Earthproof Potion = 8E 01 58 2F 00 00 00 00 00 00
 ### Thunderproof Potion = 8E 01 59 2F 00 00 00 00 00 00
+
+######### (non-Alchemist) Sage Elemental Converter #####
+### Water = 8E 01 53 2F 00 00 00 00 00 00
+### Fire = 8E 01 52 2F 00 00 00 00 00 00
+### Earth = 8E 01 54 2F 00 00 00 00 00 00
+### Wind = 8E 01 55 2F 00 00 00 00 00 00
 
 sub _s_readFs {
  my ($fileN) = @_;
