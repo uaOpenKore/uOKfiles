@@ -35,12 +35,14 @@ $iBottle = 0
 $iHerb = 0
 $iAdd1 = 0
 $iAdd2 = 0
+$iSendPack = 0
 
 $iPot = "Red Potion"
 if ("$item" == "$iPot") {
   $iBook = "Potion Creation Guide"
   $iBottle = "Empty Potion Bottle"
   $iHerb = "Red Herb"
+  $iSendPack = "8E 01 F5 01 00 00 00 00 00 00"
  }
 
 $iPot = "Yellow Potion"
@@ -48,6 +50,7 @@ if ("$item" == "$iPot") {
   $iBook = "Potion Creation Guide"
   $iBottle = "Empty Potion Bottle"
   $iHerb = "Yellow Herb"
+  $iSendPack = "8E 01 F7 01 00 00 00 00 00 00"
  }
 
 $iPot = "White Potion"
@@ -55,6 +58,7 @@ if ("$item" == "$iPot") {
   $iBook = "Potion Creation Guide"
   $iBottle = "Empty Potion Bottle"
   $iHerb = "White Herb"
+  $iSendPack = "8E 01 F8 01 00 00 00 00 00 00"
  }
 
 $iPot = "Blue Potion"
@@ -63,6 +67,7 @@ if ("$item" == "$iPot") {
   $iBottle = "Empty Potion Bottle"
   $iHerb = "Blue Herb"
   $iAdd1 = "Scell"
+  $iSendPack = "8E 01 F9 01 00 00 00 00 00 00"
  }
 
 $iPot = "Anodyne"
@@ -71,6 +76,7 @@ if ("$item" == "$iPot") {
   $iBottle = "Empty Bottle"
   $iHerb = "Ment"
   $iAdd1 = "Alcohol"
+  $iSendPack = "8E 01 5D 02 00 00 00 00 00 00"
  }
  
 $iPot = "Aloevera"
@@ -79,6 +85,7 @@ if ("$item" == "$iPot") {
   $iBottle = "Empty Bottle"
   $iHerb = "Honey"
   $iAdd1 = "Aloe"
+  $iSendPack = "8E 01 5E 02 00 00 00 00 00 00"
  }
  
 $iPot = "Embryo"
@@ -87,6 +94,7 @@ if ("$item" == "$iPot") {
   $iBottle = "Glass Tube"
   $iHerb = "Seed of Life"
   $iAdd1 = "Morning Dew of Yggdrasil"
+  $iSendPack = 0
  }
 
 $iPot = "Condensed Red Potion"
@@ -95,6 +103,7 @@ if ("$item" == "$iPot") {
   $iBottle = "Empty Test Tube"
   $iHerb = "Red Potion"
   $iAdd1 = "Cactus Needle"
+  $iSendPack = "8E 01 21 02 00 00 00 00 00 00"
  }
 
 $iPot = "Condensed Yellow Potion"
@@ -103,6 +112,7 @@ if ("$item" == "$iPot") {
   $iBottle = "Empty Test Tube"
   $iHerb = "Yellow Potion"
   $iAdd1 = "Mole Whiskers"
+  $iSendPack = "8E 01 22 02 00 00 00 00 00 00"
  }
 $iPot = "Condensed White Potion"
 if ("$item" == "$iPot") {
@@ -110,5 +120,6 @@ if ("$item" == "$iPot") {
   $iBottle = "Empty Test Tube"
   $iHerb = "White Potion"
   $iAdd1 = "Witched Starsand"
+  $iSendPack = "8E 01 23 02 00 00 00 00 00 00"
  }
 
