@@ -354,7 +354,8 @@ pause 1
 while ($countI > 0) as loopA
  $item = _s_getItem("$lifs")
  $lifs = _s_delItem("$lifs")
- :repeatCP
+if ("$item" == "END") goto endCP
+:repeatCP
  if ($.sp < 100) goto endCP
  if ("$item" == "Blue Potion") {
   if (@storage(Blue Herb) < 50 || @storage(Scell) < 50 || @storage(Empty Potion Bottle) < 50 || @storage(Medicine Bowl) < 50 ) goto endLoopA
