@@ -1,4 +1,4 @@
-#Example: list of items that are sold when the amount of stack is highAlcohol
+#Example: list of items that are sold when the amount of stack is high
 Acid Bottle
 Alcohol
 Aloe
