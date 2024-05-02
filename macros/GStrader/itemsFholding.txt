@@ -9,18 +9,18 @@ Anodyne
 Arrow
 Authoritative Badge
 Awakening Potion
-Bottle Grenade
 Blue Gemstone
 Blue Herb
 Blue Potion
+Bottle Grenade
 Butterfly Wing
 Cactus Needle
 Chonchon Card
 Coldproof Potion
+Concentration Potion
 Condensed Red Potion
 Condensed White Potion
 Condensed Yellow Potion
-Concentration Potion
 Crystal Blue
 Dead Branch
 Detonator
@@ -30,13 +30,14 @@ Embryo
 Empty Bottle
 Empty Potion Bottle
 Empty Test Tube
+Fabric
 Fantastic Cooking Kit
 Fire Arrow
 Fireproof Potion
 Fly Wing
 Frill
-Glistening Coat
 Glass Tube
+Glistening Coat
 Grape
 Grape Juice
 Great Nature
@@ -46,6 +47,7 @@ Green Potion
 Harpy Feather
 Heart of Mermaid
 Honey
+Immortal Heart
 Large Jellopy
 Lemon
 Magnifier
@@ -73,25 +75,26 @@ Red Blood
 Red Gemstone
 Red Herb
 Red Potion
-Royal Jelly
 Rough Elunium
 Rough Oridecon
+Royal Jelly
 Scell
 Seed of Life
 Skeleton Card
-Stem
 Steel
 Steel Chonchon Card
+Stem
 Tendon
 Thunderproof Potion
 White Herb
 White Potion
-Witched Starsand
 Wind of Verdure
+Witched Starsand
 Worm Out Scroll
-Yoyo Card
 Yellow Gemstone
 Yellow Herb
 Yellow Potion
+Yoyo Card
 Zenorc's Fang
 Zombie Card
+
