@@ -8,24 +8,31 @@ Animal Skin
 Antelope Horn
 Antelope Skin
 Apple
+Bacillus
 Banana
+Barren Trunk
+Bear's Footskin
 Black Hair
 Black Ladle
 Brigan
+Bug Leg
 Chonchon Doll
 Cobweb
 Coral Reef
 Cracked Diamond
 Cursed Ruby
+Cyfar
 Daenggie
 Decayed Nail
 Dew Laden Moss
 Dokebi Horn
 Dragon Canine
 Earthworm Peeling
+Fatty Chubby Earthworm
 Feather
 Feather of Birds
 Fin
+Fine-Grained Trunk
 Fine Sand
 Fish Tail
 Fluff
@@ -42,18 +49,26 @@ Iron Ore
 Jellopy
 Jubilee
 Level 3 Earth Spike
+Level 3 Fire Bolt
 Level 5 Heal
 Maneater Root
 Mantis Scythe
 Memento
 Milk
+Monster's Feed
+Moth Wings
 Mould Powder
+Mushroom Spore
+Nipper
 Old Frying Pan
 Old Portrait
 Opal
 Pet Incubator
 Piece of Egg Shell
+Potato
+Puppet
 Reptile Tongue
+Resin
 Rotten Bandage
 Rusty Iron
 Sand Clump
@@ -77,10 +92,12 @@ Stone Heart
 Sweet Potato
 Tentacle
 Tooth of Bat
+Tough Scalelike Stem
+Trap
+Tree Root
 Trunk
+Unripe Apple
 Wing of Red Bat
 Witherless Rose
 Worm Peeling
 Zargon
-
-
