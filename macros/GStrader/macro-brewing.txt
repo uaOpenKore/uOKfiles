@@ -162,5 +162,35 @@ if ("$item" == "Glistening Coat") {
   $iSendPack = "8E 01 E3 1B 00 00 00 00 00 00"
  }
 
+if ("$item" == "Fireproof Potion") {
+  $iBook = "Elemental Potion Creation Guide"
+  $iBottle = "Empty Potion Bottle"
+  $iHerb = "Red Gemstone"
+  $iAdd1 = "Frill"
+  $iSendPack = "8E 01 52 2F 00 00 00 00 00 00"
+ }
 
+if ("$item" == "Coldproof Potion") {
+  $iBook = "Elemental Potion Creation Guide"
+  $iBottle = "Empty Potion Bottle"
+  $iHerb = "Blue Gemstone"
+  $iAdd1 = "Heart of Mermaid"
+  $iSendPack = "8E 01 53 2F 00 00 00 00 00 00"
+ }
+
+if ("$item" == "Earthproof Potion") {
+  $iBook = "Elemental Potion Creation Guide"
+  $iBottle = "Empty Potion Bottle"
+  $iHerb = "Yellow Gemstone"
+  $iAdd1 = "Large Jellopy"
+  $iSendPack = "8E 01 54 2F 00 00 00 00 00 00"
+ }
+
+if ("$item" == "Thunderproof Potion") {
+  $iBook = "Elemental Potion Creation Guide"
+  $iBottle = "Empty Potion Bottle"
+  $iHerb = "Blue Gemstone"
+  $iAdd1 = "Moth Dust"
+  $iSendPack = "8E 01 55 2F 00 00 00 00 00 00"
+ }
 
