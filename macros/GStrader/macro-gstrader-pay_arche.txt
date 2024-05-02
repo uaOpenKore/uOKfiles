@@ -357,7 +357,7 @@ while ($countI > 0) as loopA
  :repeatCP
  if ($.sp < 100) goto endCP
  if ("$item" == "Blue Potion") {
-  if (@storage(Blue Herb) < 100 && @storage(Scell) < 100 && @storage(Empty Potion Bottle) < 100 && @storage(Medicine Bowl) < 100 ) goto endLoopA
+  if (@storage(Blue Herb) < 50 || @storage(Scell) < 50 || @storage(Empty Potion Bottle) < 50 || @storage(Medicine Bowl) < 50 ) goto endLoopA
    do storage add Red Herb
    do storage add Yellow Herb
    do storage add White Herb
