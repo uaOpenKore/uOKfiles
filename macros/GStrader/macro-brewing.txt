@@ -81,10 +81,34 @@ if ("$item" == "$iPot") {
   $iAdd1 = "Aloe"
  }
  
- $iPot = "Embryo"
+$iPot = "Embryo"
 if ("$item" == "$iPot") {
   $iBook = "Potion Creation Guide"
   $iBottle = "Glass Tube"
   $iHerb = "Seed of Life"
   $iAdd1 = "Morning Dew of Yggdrasil"
  }
+
+$iPot = "Condensed Red Potion"
+if ("$item" == "$iPot") {
+  $iBook = "Condensed Potion Creation Guide"
+  $iBottle = "Empty Test Tube"
+  $iHerb = "Red Potion"
+  $iAdd1 = "Cactus Needle"
+ }
+
+$iPot = "Condensed Yellow Potion"
+if ("$item" == "$iPot") {
+  $iBook = "Condensed Potion Creation Guide"
+  $iBottle = "Empty Test Tube"
+  $iHerb = "Yellow Potion"
+  $iAdd1 = "Mole Whiskers"
+ }
+$iPot = "Condensed White Potion"
+if ("$item" == "$iPot") {
+  $iBook = "Condensed Potion Creation Guide"
+  $iBottle = "Empty Test Tube"
+  $iHerb = "White Potion"
+  $iAdd1 = "Witched Starsand"
+ }
+
