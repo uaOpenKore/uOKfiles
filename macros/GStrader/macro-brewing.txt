@@ -114,5 +114,53 @@ if ("$item" == "Condensed White Potion") {
   $iSendPack = "8E 01 23 02 00 00 00 00 00 00"
  }
 
+if ("$item" == "Alcohol") {
+  $iBook = "Alcohol Creation Guide"
+  $iBottle = "Empty Bottle"
+  $iHerb = "Empty Test Tube"
+  $iAdd1 = "Stem"
+  $iAdd2 = "Poison Spore"
+  $iSendPack = "8E 01 CA 03 00 00 00 00 00 00"
+ }
+
+if ("$item" == "Bottle Grenade") {
+  $iBook = "Bottle Grenade Creation Guide"
+  $iBottle = "Empty Bottle"
+  $iHerb = "Alcohol"
+  $iAdd1 = "Fabric"
+  $iSendPack = "8E 01 DF 1B 00 00 00 00 00 00"
+ }
+
+if ("$item" == "Acid Bottle") {
+  $iBook = "Acid Bottle Creation Guide"
+  $iBottle = "Empty Bottle"
+  $iHerb = "Immortal Heart"
+  $iSendPack = "8E 01 E0 1B 00 00 00 00 00 00"
+ }
+
+if ("$item" == "Plant Bottle") {
+  $iBook = "Plant Bottle Creation Guide"
+  $iBottle = "Empty Bottle"
+  $iHerb = "Maneater Blossom"
+  $iSendPack = "8E 01 E1 1B 00 00 00 00 00 00"
+ }
+
+if ("$item" == "Marine Sphere Bottle") {
+  $iBook = "Marine Sphere Creation Guide"
+  $iBottle = "Empty Bottle"
+  $iHerb = "Tendon"
+  $iAdd1 = "Detonator"
+  $iSendPack = "8E 01 E2 1B 00 00 00 00 00 00"
+ }
+
+if ("$item" == "Glistening Coat") {
+  $iBook = "Glistening Coat Creation Guide"
+  $iBottle = "Empty Bottle"
+  $iHerb = "Heart of Mermaid"
+  $iAdd1 = "Alcohol"
+  $iAdd2 = "Zenorc's Fang"
+  $iSendPack = "8E 01 E3 1B 00 00 00 00 00 00"
+ }
+
 
 
