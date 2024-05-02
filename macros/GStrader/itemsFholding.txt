@@ -1,75 +1,97 @@
 #Example: list of items that are sold when the amount of stack is highAlcohol
-Amethyst
+Acid Bottle
+Alcohol
+Aloe
+Aloe Leaflet
+Aloevera
 Andre Card
-Aquamarine
+Anodyne
+Arrow
+Authoritative Badge
+Awakening Potion
+Bottle Grenade
 Blue Gemstone
+Blue Herb
+Blue Potion
+Butterfly Wing
+Cactus Needle
 Chonchon Card
+Coldproof Potion
+Condensed Red Potion
+Condensed White Potion
+Condensed Yellow Potion
+Concentration Potion
 Crystal Blue
+Dead Branch
+Detonator
 Detrimindexta
-Elunium
-Familiar Card
-Geographer Card
+Earthproof Potion
+Embryo
+Empty Bottle
+Empty Potion Bottle
+Empty Test Tube
+Fantastic Cooking Kit
+Fire Arrow
+Fireproof Potion
+Fly Wing
+Frill
+Glistening Coat
+Glass Tube
+Grape
+Grape Juice
 Great Nature
+Green Herb
 Green Live
+Green Potion
 Harpy Feather
+Heart of Mermaid
+Honey
+Large Jellopy
+Lemon
+Magnifier
 Magnolia Card
+Maneater Blossom
+Marine Sphere Bottle
 Marine Sphere Card
-Matyr Card
+Ment
 Merman Card
+Mole Whiskers
+Morning Dew of Yggdrasil
+Moth Dust
 Mystic Frozen
 Nine Tails
 Obeaune Card
+Old Blue Box
+Orange Potion
 Oridecon
+Panacea
 Phen Card
+Plant Bottle
+Poison Spore
 Poporing Card
-Poring Card
 Red Blood
 Red Gemstone
-Rough Elunium
-Rough Oridecon
-Skeleton Card
-Steel
-Steel Chonchon Card
-Wind of Verdure
-Yellow Gemstone
-Yoyo Card
-Zombie Card
-Yellow Herb
 Red Herb
 Red Potion
-Yellow Potion
-Blue Potion
-White Potion
-Grape
-Green Herb
-Blue Herb
-White Herb
-Orange Potion
-Panacea
 Royal Jelly
-Aloe Leaflet
-Grape Juice
-Lemon
-Fly Wing
-Butterfly Wing
-Old Blue Box
-Dead Branch
-Magnifier
-Worm Out Scroll
-Concentration Potion
-Awakening Potion
-Authoritative Badge
-Fantastic Cooking Kit
-Arrow
-Fire Arrow
-Yellow Gemstone
-Red Gemstone
-Blue Gemstone
-Empty Bottle
+Rough Elunium
+Rough Oridecon
 Scell
-Empty Potion Bottle
-Medicine Bowl
-Heart of Mermaid
-Harpy Feather
-Green Potion
-
+Seed of Life
+Skeleton Card
+Stem
+Steel
+Steel Chonchon Card
+Tendon
+Thunderproof Potion
+White Herb
+White Potion
+Witched Starsand
+Wind of Verdure
+Worm Out Scroll
+Yoyo Card
+Yellow Gemstone
+Yellow Herb
+Yellow Potion
+Zenorc's Fang
+Zombie Card
