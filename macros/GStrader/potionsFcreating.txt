@@ -1,3 +1,4 @@
+#The list brews potion priority. END is used to halt creation.
 Blue Potion
 END
 White Potion
