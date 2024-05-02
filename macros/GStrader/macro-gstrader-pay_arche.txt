@@ -392,6 +392,7 @@ while ($countI > 0) as loopA
    goto repeatCP
   }
   :endLoopA
+$countI--
 end loopA
 :endCP
 do c @storage
