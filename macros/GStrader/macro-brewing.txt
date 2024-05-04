@@ -35,12 +35,12 @@ $countI = _s_getItem("$lifs")
 $lifs = _s_delItem("$lifs")
 do storage close
 pause 1
+
+:nextCP
 do c @gstorage
 pause 1
-while ($countI > 0) as loopA
- $item = _s_getItem("$lifs")
- $lifs = _s_delItem("$lifs")
-
+$item = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
 
 $iBowl = "Medicine Bowl"
 $iBook = "none"
@@ -49,7 +49,7 @@ $iHerb = "none"
 $iAdd1 = "none"
 $iAdd2 = "none"
 $iSendPack = "none"
-if ( "$item" == "END" ) goto endCP
+if ( "$item" == "END" || "$item" == "" ) goto endBrew
 
 if ("$item" == "Red Potion") {
   $iBook = "Potion Creation Guide"
@@ -214,7 +214,7 @@ do c @gstorage
 pause 1
 
 :repeatCP
- if ($.sp < 100) goto endCP
+ if ($.sp < 100) goto endBrew
 
 if ( @storage($iBowl) < 1 ) goto endCP 
   do storage get $iBowl 100
@@ -238,7 +238,7 @@ if ( @inventory($iHerb) < 100 ) {
   if ( @storage($iHerb) > 1 ) do storage get $iHerb @eval( 100 - @inventory($iHerb) )
  }
 
-if ( @inventory($iBook) < 0 || @storage($iBook) > 0 ) do storage get $iBook
+if ( @inventory($iBook) < 1 && @storage($iBook) > 0 ) do storage get $iBook
 do storage close
 pause 1
 if ( @inventory($iBook) < 1 ) {
@@ -250,7 +250,7 @@ if ( @inventory($iBook) < 1 ) {
 
 if ( @inventory($iBook) < 1 ) goto endCP
 
-while ($.sp > 5 && @inventory(iBottle) > 0 && @inventory(iHerb) > 0 && @inventory($iAdd1) > 0 && @inventory($iAdd2) > 0 && @inventory($iBowl) > 0 ) as loopSkill
+while ($.sp > 5 && @inventory($iBottle) > 0 && @inventory($iHerb) > 0 && @inventory($iAdd1) > 0 && @inventory($iAdd2) > 0 && @inventory($iBowl) > 0 ) as loopSkill
   do ss 228 10
   pause 1
   do send $iSendPack
@@ -259,12 +259,12 @@ while ($.sp > 5 && @inventory(iBottle) > 0 && @inventory(iHerb) > 0 && @inventor
 
 do c @gstorage
 pause 1
-do storage add $item if ( @inventory($item) > 0 )
-do storage add $iHerb if ( @inventory($iHerb) > 0 )
-do storage add $iBottle if ( @inventory($iBottle) > 0 )
-do storage add $iBowl if ( @inventory($iBowl) > 0 )
-do storage add $iAdd1 if ( @inventory($iAdd1) > 0 )
-do storage add $iAdd2 if ( @inventory($iAdd2) > 0 )
+if ( @inventory($item) > 0 ) do storage add $item
+if ( @inventory($iHerb) > 0 ) do storage add $iHerb
+if ( @inventory($iBowl) > 0 ) do storage add $iBowl
+if ( @inventory($iAdd1) > 0 ) do storage add $iAdd1
+if ( @inventory($iAdd2) > 0 ) do storage add $iAdd2
+if ( @inventory($iBottle) > 0 ) do storage add $iBottle
 goto repeatCP
 
 :endCP
@@ -276,4 +276,7 @@ if ( @inventory($iBook) > 0 ) {
   pause 1
  }
 do autostorage
+pause 1
+goto nextCP
 
+:endBrew
