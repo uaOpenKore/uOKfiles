@@ -252,7 +252,7 @@ if ( @invamount($iBook) < 1 ) {
 
 if ( @invamount($iBook) < 1 ) goto endCP
 
-while ($.sp > 5 && @invamount($iBottle) > 0 && @invamount($iHerb) > 0 && @invamount($iAdd1) > 0 && @invamount($iAdd2) > 0 && @invamount($iBowl) > 0 ) as loopSkill
+while ($.sp > 5 && @invamount($iBottle) > 0 && @invamount($iHerb) > 0 && ( @invamount($iAdd1) > 0 || "$iAdd1" == "none" ) && ( @invamount($iAdd2) > 0 || "$iAdd2 == "none" ) && @invamount($iBowl) > 0 ) as loopSkill
   do ss 228 10
   pause 1
   do send $iSendPack
