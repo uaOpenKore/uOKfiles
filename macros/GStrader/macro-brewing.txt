@@ -282,8 +282,14 @@ pause 1
 goto nextCP
 
 :endBrew
-
 storage close
+if ( @invamount($iBook) > 0 ) {
+  do c @storage
+  pause 1
+  do storage add $iBook
+  do storage close
+  pause 1
+ }
 pause 1
 do autostorage
 
