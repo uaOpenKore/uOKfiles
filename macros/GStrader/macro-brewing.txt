@@ -28,6 +28,20 @@
 #      Earthproof Potion = Empty Potion Bottle + Yellow Gemstone  + Large Jellopy           : 8E 01 54 2F 00 00 00 00 00 00
 #    Thunderproof Potion = Empty Potion Bottle + Blue Gemstone    + Moth Dust               : 8E 01 55 2F 00 00 00 00 00 00
 
+macro _create_potions {
+set exclusive 1
+$lifs = _s_readFs("potionsFcreating.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do storage close
+pause 1
+do c @gstorage
+pause 1
+while ($countI > 0) as loopA
+ $item = _s_getItem("$lifs")
+ $lifs = _s_delItem("$lifs")
+
+
 $iBowl = "Medicine Bowl"
 $iBook = "none"
 $iBottle = "none"
@@ -199,17 +213,14 @@ if ( "$iSendPack" == "none" || "iBook" == "none" ) goto endCP
 do c @gstorage
 pause 1
 
-if ( @storage($iBowl) < 1 ) {
-  goto endCP 
- }else{
-  do storage get $iBowl 100
- }
+:repeatCP
+ if ($.sp < 100) goto endCP
 
-if ( @storage($iBottle) < 1 ) {
-  goto endCP 
- }else{
+if ( @storage($iBowl) < 1 ) goto endCP 
+  do storage get $iBowl 100
+
+if ( @storage($iBottle) < 1 ) goto endCP 
   do storage get $iBottle 100
- }
 
 if ( "$iAdd1" != "none" ) {
   if ( @storage($iAdd1) < 1 ) goto endCP
@@ -221,14 +232,13 @@ if ( "$iAdd2" != "none" ) {
   do storage get $iAdd2 100
  }
 
-#$iHerb = "none"
 if ( @storage($iHerb) < 1 ) goto endCP
 do storage get $iHerb 100
 if ( @inventory($iHerb) < 100 ) {
   if ( @storage($iHerb) > 1 ) do storage get $iHerb @eval( 100 - @inventory($iHerb) )
  }
 
-if ( @storage($iBook) > 0 ) do storage get $iBook
+if ( @inventory($iBook) < 0 || @storage($iBook) > 0 ) do storage get $iBook
 do storage close
 pause 1
 if ( @inventory($iBook) < 1 ) {
@@ -247,16 +257,6 @@ while ($.sp > 5 && @inventory(iBottle) > 0 && @inventory(iHerb) > 0 && @inventor
   pause 1
  end loopSkill
 
-:endCP
-
-if ( @inventory($iBook) > 0 ) {
-  do c @storage
-  pause 1
-  do storage add $iBook
-  do storage close
-  pause 1
- }
-
 do c @gstorage
 pause 1
 do storage add $item if ( @inventory($item) > 0 )
@@ -265,6 +265,15 @@ do storage add $iBottle if ( @inventory($iBottle) > 0 )
 do storage add $iBowl if ( @inventory($iBowl) > 0 )
 do storage add $iAdd1 if ( @inventory($iAdd1) > 0 )
 do storage add $iAdd2 if ( @inventory($iAdd2) > 0 )
+goto repeatCP
 
-
+:endCP
+if ( @inventory($iBook) > 0 ) {
+  do c @storage
+  pause 1
+  do storage add $iBook
+  do storage close
+  pause 1
+ }
+do autostorage
 
