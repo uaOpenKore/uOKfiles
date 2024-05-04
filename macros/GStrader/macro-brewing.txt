@@ -283,5 +283,10 @@ goto nextCP
 
 :endBrew
 
+storage close
+pause 1
+do autostorage
+
+
 }
 
