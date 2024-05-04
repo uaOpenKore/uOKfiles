@@ -235,9 +235,17 @@ if ( @inventory($iBook) < 1 ) {
   do c @storage
   pause 1
   do storage get $iBook
+  do storage close
  }
 
+if ( @inventory($iBook) < 1 ) goto endCP
 
+while ($.sp > 5 && @inventory(iBottle) > 0 && @inventory(iHerb) > 0 && @inventory($iAdd1) > 0 && @inventory($iAdd2) > 0 && @inventory($iBowl) > 0 ) as loopSkill
+  do ss 228 10
+  pause 1
+  do send $iSendPack
+  pause 1
+ end loopSkill
 
 
 :endCP
