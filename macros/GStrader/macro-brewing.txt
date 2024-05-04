@@ -28,14 +28,14 @@
 #      Earthproof Potion = Empty Potion Bottle + Yellow Gemstone  + Large Jellopy           : 8E 01 54 2F 00 00 00 00 00 00
 #    Thunderproof Potion = Empty Potion Bottle + Blue Gemstone    + Moth Dust               : 8E 01 55 2F 00 00 00 00 00 00
 
-$iPot = 0
 $iBowl = "Medicine Bowl"
-$iBook = 0
-$iBottle = 0
-$iHerb = 0
-$iAdd1 = 0
-$iAdd2 = 0
-$iSendPack = 0
+$iBook = "none"
+$iBottle = "none"
+$iHerb = "none"
+$iAdd1 = "none"
+$iAdd2 = "none"
+$iSendPack = "none"
+if ( "$item" == "END" ) goto endCP
 
 if ("$item" == "Red Potion") {
   $iBook = "Potion Creation Guide"
@@ -87,7 +87,7 @@ if ("$item" == "Embryo") {
   $iBottle = "Glass Tube"
   $iHerb = "Seed of Life"
   $iAdd1 = "Morning Dew of Yggdrasil"
-  $iSendPack = 0
+  $iSendPack = "none"
  }
 
 if ("$item" == "Condensed Red Potion") {
@@ -194,3 +194,50 @@ if ("$item" == "Thunderproof Potion") {
   $iSendPack = "8E 01 55 2F 00 00 00 00 00 00"
  }
 
+if ( "$iSendPack" == "none" || "iBook" == "none" ) goto endCP
+
+do c @gstorage
+pause 1
+
+if ( @storage($iBowl) < 1 ) {
+  goto endCP 
+ }else{
+  do storage get $iBowl 100
+ }
+
+if ( @storage($iBottle) < 1 ) {
+  goto endCP 
+ }else{
+  do storage get $iBottle 100
+ }
+
+if ( "$iAdd1" != "none" ) {
+  if ( @storage($iAdd1) < 1 ) goto endCP
+  do storage get $iAdd1 100
+ }
+
+if ( "$iAdd2" != "none" ) {
+  if ( @storage($iAdd2) < 1 ) goto endCP
+  do storage get $iAdd2 100
+ }
+
+#$iHerb = "none"
+if ( @storage($iHerb) < 1 ) goto endCP
+do storage get $iHerb 100
+if ( @inventory($iHerb) < 100 ) {
+  if ( @storage($iHerb) > 1 ) do storage get $iHerb @eval( 100 - @inventory($iHerb) )
+ }
+
+if ( @storage($iBook) > 0 ) do storage get $iBook
+do storage close
+pause 1
+if ( @inventory($iBook) < 1 ) {
+  do c @storage
+  pause 1
+  do storage get $iBook
+ }
+
+
+
+
+:endCP
