@@ -235,7 +235,9 @@ if ( "$iAdd2" != "none" ) {
 if ( @storamount($iHerb) < 1 ) goto endCP
 do storage get $iHerb 100
 if ( @invamount($iHerb) < 100 ) {
-  if ( @storamount($iHerb) > 1 ) do storage get $iHerb @eval( 100 - @invamount($iHerb) )
+  $n0 = @invamount($iHerb)
+  $n1 = @eval(100 - $n0)
+  if ( @storamount($iHerb) > 1 ) do storage get $iHerb $n1
  }
 
 if ( @invamount($iBook) < 1 && @storamount($iBook) > 0 ) do storage get $iBook
