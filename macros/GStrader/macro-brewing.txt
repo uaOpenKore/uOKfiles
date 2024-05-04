@@ -42,170 +42,170 @@ pause 1
 $item = _s_getItem("$lifs")
 $lifs = _s_delItem("$lifs")
 
-$iBowl = "Medicine Bowl"
-$iBook = "none"
-$iBottle = "none"
-$iHerb = "none"
-$iAdd1 = "none"
-$iAdd2 = "none"
-$iSendPack = "none"
+$iBowl = Medicine Bowl
+$iBook = none
+$iBottle = none
+$iHerb = none
+$iAdd1 = none
+$iAdd2 = none
+$iSendPack = none
 if ( "$item" == "END" || "$item" == "" ) goto endBrew
 
 if ("$item" == "Red Potion") {
-  $iBook = "Potion Creation Guide"
-  $iBottle = "Empty Potion Bottle"
-  $iHerb = "Red Herb"
-  $iSendPack = "8E 01 F5 01 00 00 00 00 00 00"
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Red Herb
+  $iSendPack = 8E 01 F5 01 00 00 00 00 00 00
  }
 
 if ("$item" == "Yellow Potion") {
-  $iBook = "Potion Creation Guide"
-  $iBottle = "Empty Potion Bottle"
-  $iHerb = "Yellow Herb"
-  $iSendPack = "8E 01 F7 01 00 00 00 00 00 00"
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Yellow Herb
+  $iSendPack = 8E 01 F7 01 00 00 00 00 00 00
  }
 
 if ("$item" == "White Potion") {
-  $iBook = "Potion Creation Guide"
-  $iBottle = "Empty Potion Bottle"
-  $iHerb = "White Herb"
-  $iSendPack = "8E 01 F8 01 00 00 00 00 00 00"
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = White Herb
+  $iSendPack = 8E 01 F8 01 00 00 00 00 00 00
  }
 
 if ("$item" == "Blue Potion") {
-  $iBook = "Potion Creation Guide"
-  $iBottle = "Empty Potion Bottle"
-  $iHerb = "Blue Herb"
-  $iAdd1 = "Scell"
-  $iSendPack = "8E 01 F9 01 00 00 00 00 00 00"
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Blue Herb
+  $iAdd1 = Scell
+  $iSendPack = 8E 01 F9 01 00 00 00 00 00 00
  }
 
 if ("$item" == "Anodyne") {
-  $iBook = "Potion Creation Guide"
-  $iBottle = "Empty Bottle"
-  $iHerb = "Ment"
-  $iAdd1 = "Alcohol"
-  $iSendPack = "8E 01 5D 02 00 00 00 00 00 00"
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Ment
+  $iAdd1 = Alcohol
+  $iSendPack = 8E 01 5D 02 00 00 00 00 00 00
  }
  
 if ("$item" == "Aloevera") {
-  $iBook = "Potion Creation Guide"
-  $iBottle = "Empty Bottle"
-  $iHerb = "Honey"
-  $iAdd1 = "Aloe"
-  $iSendPack = "8E 01 5E 02 00 00 00 00 00 00"
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Honey
+  $iAdd1 = Aloe
+  $iSendPack = 8E 01 5E 02 00 00 00 00 00 00
  }
  
 if ("$item" == "Embryo") {
-  $iBook = "Potion Creation Guide"
-  $iBottle = "Glass Tube"
-  $iHerb = "Seed of Life"
-  $iAdd1 = "Morning Dew of Yggdrasil"
-  $iSendPack = "none"
+  $iBook = Potion Creation Guide
+  $iBottle = Glass Tube
+  $iHerb = Seed of Life
+  $iAdd1 = Morning Dew of Yggdrasil
+  $iSendPack = none
  }
 
 if ("$item" == "Condensed Red Potion") {
-  $iBook = "Condensed Potion Creation Guide"
-  $iBottle = "Empty Test Tube"
-  $iHerb = "Red Potion"
-  $iAdd1 = "Cactus Needle"
-  $iSendPack = "8E 01 21 02 00 00 00 00 00 00"
+  $iBook = Condensed Potion Creation Guide
+  $iBottle = Empty Test Tube
+  $iHerb = Red Potion
+  $iAdd1 = Cactus Needle
+  $iSendPack = 8E 01 21 02 00 00 00 00 00 00
  }
 
 if ("$item" == "Condensed Yellow Potion") {
-  $iBook = "Condensed Potion Creation Guide"
-  $iBottle = "Empty Test Tube"
-  $iHerb = "Yellow Potion"
-  $iAdd1 = "Mole Whiskers"
-  $iSendPack = "8E 01 22 02 00 00 00 00 00 00"
+  $iBook = Condensed Potion Creation Guide
+  $iBottle = Empty Test Tube
+  $iHerb = Yellow Potion
+  $iAdd1 = Mole Whiskers
+  $iSendPack = 8E 01 22 02 00 00 00 00 00 00
  }
 
 if ("$item" == "Condensed White Potion") {
-  $iBook = "Condensed Potion Creation Guide"
-  $iBottle = "Empty Test Tube"
-  $iHerb = "White Potion"
-  $iAdd1 = "Witched Starsand"
-  $iSendPack = "8E 01 23 02 00 00 00 00 00 00"
+  $iBook = Condensed Potion Creation Guide
+  $iBottle = Empty Test Tube
+  $iHerb = White Potion
+  $iAdd1 = Witched Starsand
+  $iSendPack = 8E 01 23 02 00 00 00 00 00 00
  }
 
 if ("$item" == "Alcohol") {
-  $iBook = "Alcohol Creation Guide"
-  $iBottle = "Empty Bottle"
-  $iHerb = "Empty Test Tube"
-  $iAdd1 = "Stem"
-  $iAdd2 = "Poison Spore"
-  $iSendPack = "8E 01 CA 03 00 00 00 00 00 00"
+  $iBook = Alcohol Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Empty Test Tube
+  $iAdd1 = Stem
+  $iAdd2 = Poison Spore
+  $iSendPack = 8E 01 CA 03 00 00 00 00 00 00
  }
 
 if ("$item" == "Bottle Grenade") {
-  $iBook = "Bottle Grenade Creation Guide"
-  $iBottle = "Empty Bottle"
-  $iHerb = "Alcohol"
-  $iAdd1 = "Fabric"
-  $iSendPack = "8E 01 DF 1B 00 00 00 00 00 00"
+  $iBook = Bottle Grenade Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Alcohol
+  $iAdd1 = Fabric
+  $iSendPack = 8E 01 DF 1B 00 00 00 00 00 00
  }
 
 if ("$item" == "Acid Bottle") {
-  $iBook = "Acid Bottle Creation Guide"
-  $iBottle = "Empty Bottle"
-  $iHerb = "Immortal Heart"
-  $iSendPack = "8E 01 E0 1B 00 00 00 00 00 00"
+  $iBook = Acid Bottle Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Immortal Heart
+  $iSendPack = 8E 01 E0 1B 00 00 00 00 00 00
  }
 
 if ("$item" == "Plant Bottle") {
-  $iBook = "Plant Bottle Creation Guide"
-  $iBottle = "Empty Bottle"
-  $iHerb = "Maneater Blossom"
-  $iSendPack = "8E 01 E1 1B 00 00 00 00 00 00"
+  $iBook = Plant Bottle Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Maneater Blossom
+  $iSendPack = 8E 01 E1 1B 00 00 00 00 00 00
  }
 
 if ("$item" == "Marine Sphere Bottle") {
-  $iBook = "Marine Sphere Creation Guide"
-  $iBottle = "Empty Bottle"
-  $iHerb = "Tendon"
-  $iAdd1 = "Detonator"
-  $iSendPack = "8E 01 E2 1B 00 00 00 00 00 00"
+  $iBook = Marine Sphere Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Tendon
+  $iAdd1 = Detonator
+  $iSendPack = 8E 01 E2 1B 00 00 00 00 00 00
  }
 
 if ("$item" == "Glistening Coat") {
-  $iBook = "Glistening Coat Creation Guide"
-  $iBottle = "Empty Bottle"
-  $iHerb = "Heart of Mermaid"
-  $iAdd1 = "Alcohol"
-  $iAdd2 = "Zenorc's Fang"
-  $iSendPack = "8E 01 E3 1B 00 00 00 00 00 00"
+  $iBook = Glistening Coat Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Heart of Mermaid
+  $iAdd1 = Alcohol
+  $iAdd2 = Zenorc's Fang
+  $iSendPack = 8E 01 E3 1B 00 00 00 00 00 00
  }
 
 if ("$item" == "Fireproof Potion") {
-  $iBook = "Elemental Potion Creation Guide"
-  $iBottle = "Empty Potion Bottle"
-  $iHerb = "Red Gemstone"
-  $iAdd1 = "Frill"
-  $iSendPack = "8E 01 52 2F 00 00 00 00 00 00"
+  $iBook = Elemental Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Red Gemstone
+  $iAdd1 = Frill
+  $iSendPack = 8E 01 52 2F 00 00 00 00 00 00
  }
 
 if ("$item" == "Coldproof Potion") {
-  $iBook = "Elemental Potion Creation Guide"
-  $iBottle = "Empty Potion Bottle"
-  $iHerb = "Blue Gemstone"
-  $iAdd1 = "Heart of Mermaid"
-  $iSendPack = "8E 01 53 2F 00 00 00 00 00 00"
+  $iBook = Elemental Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Blue Gemstone
+  $iAdd1 = Heart of Mermaid
+  $iSendPack = 8E 01 53 2F 00 00 00 00 00 00
  }
 
 if ("$item" == "Earthproof Potion") {
-  $iBook = "Elemental Potion Creation Guide"
-  $iBottle = "Empty Potion Bottle"
-  $iHerb = "Yellow Gemstone"
-  $iAdd1 = "Large Jellopy"
-  $iSendPack = "8E 01 54 2F 00 00 00 00 00 00"
+  $iBook = Elemental Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Yellow Gemstone
+  $iAdd1 = Large Jellopy
+  $iSendPack = 8E 01 54 2F 00 00 00 00 00 00
  }
 
 if ("$item" == "Thunderproof Potion") {
-  $iBook = "Elemental Potion Creation Guide"
-  $iBottle = "Empty Potion Bottle"
-  $iHerb = "Blue Gemstone"
-  $iAdd1 = "Moth Dust"
-  $iSendPack = "8E 01 55 2F 00 00 00 00 00 00"
+  $iBook = Elemental Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Blue Gemstone
+  $iAdd1 = Moth Dust
+  $iSendPack = 8E 01 55 2F 00 00 00 00 00 00
  }
 
 if ( "$iSendPack" == "none" || "iBook" == "none" ) goto endCP
@@ -216,41 +216,41 @@ pause 1
 :repeatCP
  if ($.sp < 100) goto endBrew
 
-if ( @storage($iBowl) < 1 ) goto endCP 
+if ( @storamount($iBowl) < 1 ) goto endCP 
   do storage get $iBowl 100
 
-if ( @storage($iBottle) < 1 ) goto endCP 
+if ( @storamount($iBottle) < 1 ) goto endCP 
   do storage get $iBottle 100
 
 if ( "$iAdd1" != "none" ) {
-  if ( @storage($iAdd1) < 1 ) goto endCP
+  if ( @storamount($iAdd1) < 1 ) goto endCP
   do storage get $iAdd1 100
  }
 
 if ( "$iAdd2" != "none" ) {
-  if ( @storage($iAdd2) < 1 ) goto endCP
+  if ( @storamount($iAdd2) < 1 ) goto endCP
   do storage get $iAdd2 100
  }
 
-if ( @storage($iHerb) < 1 ) goto endCP
+if ( @storamount($iHerb) < 1 ) goto endCP
 do storage get $iHerb 100
-if ( @inventory($iHerb) < 100 ) {
-  if ( @storage($iHerb) > 1 ) do storage get $iHerb @eval( 100 - @inventory($iHerb) )
+if ( @invamount($iHerb) < 100 ) {
+  if ( @storamount($iHerb) > 1 ) do storage get $iHerb @eval( 100 - @invamount($iHerb) )
  }
 
-if ( @inventory($iBook) < 1 && @storage($iBook) > 0 ) do storage get $iBook
+if ( @invamount($iBook) < 1 && @storamount($iBook) > 0 ) do storage get $iBook
 do storage close
 pause 1
-if ( @inventory($iBook) < 1 ) {
+if ( @invamount($iBook) < 1 ) {
   do c @storage
   pause 1
   do storage get $iBook
   do storage close
  }
 
-if ( @inventory($iBook) < 1 ) goto endCP
+if ( @invamount($iBook) < 1 ) goto endCP
 
-while ($.sp > 5 && @inventory($iBottle) > 0 && @inventory($iHerb) > 0 && @inventory($iAdd1) > 0 && @inventory($iAdd2) > 0 && @inventory($iBowl) > 0 ) as loopSkill
+while ($.sp > 5 && @invamount($iBottle) > 0 && @invamount($iHerb) > 0 && @invamount($iAdd1) > 0 && @invamount($iAdd2) > 0 && @invamount($iBowl) > 0 ) as loopSkill
   do ss 228 10
   pause 1
   do send $iSendPack
@@ -259,16 +259,16 @@ while ($.sp > 5 && @inventory($iBottle) > 0 && @inventory($iHerb) > 0 && @invent
 
 do c @gstorage
 pause 1
-if ( @inventory($item) > 0 ) do storage add $item
-if ( @inventory($iHerb) > 0 ) do storage add $iHerb
-if ( @inventory($iBowl) > 0 ) do storage add $iBowl
-if ( @inventory($iAdd1) > 0 ) do storage add $iAdd1
-if ( @inventory($iAdd2) > 0 ) do storage add $iAdd2
-if ( @inventory($iBottle) > 0 ) do storage add $iBottle
+if ( @invamount($item) > 0 ) do storage add $item
+if ( @invamount($iHerb) > 0 ) do storage add $iHerb
+if ( @invamount($iBowl) > 0 ) do storage add $iBowl
+if ( @invamount($iAdd1) > 0 ) do storage add $iAdd1
+if ( @invamount($iAdd2) > 0 ) do storage add $iAdd2
+if ( @invamount($iBottle) > 0 ) do storage add $iBottle
 goto repeatCP
 
 :endCP
-if ( @inventory($iBook) > 0 ) {
+if ( @invamount($iBook) > 0 ) {
   do c @storage
   pause 1
   do storage add $iBook
