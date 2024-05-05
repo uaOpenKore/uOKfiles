@@ -259,6 +259,14 @@ while ($.sp > 5 && @invamount($iBottle) > 0 && @invamount($iHerb) > 0 && ( @inva
   pause 1
  end loopSkill
 
+if ( @invamount($iBook) > 0 ) {
+  do c @storage
+  pause 1
+  do storage add $iBook
+  do storage close
+  pause 1
+ }
+
 do c @gstorage
 pause 1
 if ( @invamount($item) > 0 ) do storage add $item
@@ -270,29 +278,16 @@ if ( @invamount($iBottle) > 0 ) do storage add $iBottle
 goto repeatCP
 
 :endCP
-if ( @invamount($iBook) > 0 ) {
-  do c @storage
-  pause 1
-  do storage add $iBook
-  do storage close
-  pause 1
- }
+storage close
+pause 1
 do autostorage
 pause 1
 goto nextCP
 
 :endBrew
 storage close
-if ( @invamount($iBook) > 0 ) {
-  do c @storage
-  pause 1
-  do storage add $iBook
-  do storage close
-  pause 1
- }
 pause 1
 do autostorage
-
 
 }
 
