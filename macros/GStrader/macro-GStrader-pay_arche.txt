@@ -1,24 +1,3 @@
-##### Red Potion = 8E 01 F5 01 00 00 00 00 00 00
-##### Yellow Potion = 8E 01 F7 01 00 00 00 00 00 00
-##### White Potion = 8E 01 F8 01 00 00 00 00 00 00
-##### Blue Potion = 8E 01 F9 01 00 00 00 00 00 00
-##### Adonyne = 8E 01 5D 02 00 00 00 00 00 00
-##### Aloevera = 8E 01 5E 02 00 00 00 00 00 00
-##### Red Slim = 8E 01 21 02 00 00 00 00 00 00
-##### Yellow Slim = 8E 01 22 02 00 00 00 00 00 00
-##### White Slim = 8E 01 23 02 00 00 00 00 00 00
-##### Alcohol = 8E 01 CA 03 00 00 00 00 00 00
-##### Fire Bottle = 8E 01 DF 1B 00 00 00 00 00 00
-##### Acid Bottle = 8E 01 E0 1B 00 00 00 00 00 00
-##### Plant Bottle = 8E 01 E1 1B 00 00 00 00 00 00
-##### Mine Bottle = 8E 01 E2 1B 00 00 00 00 00 00
-##### Coating Wax = 8E 01 E3 1B 00 00 00 00 00 00
-######### NVM the resist potions i got it from some thai site
-### Fireproof Potion = 8E 01 56 2F 00 00 00 00 00 00
-### Coldproof Potion = 8E 01 57 2F 00 00 00 00 00 00
-### Earthproof Potion = 8E 01 58 2F 00 00 00 00 00 00
-### Thunderproof Potion = 8E 01 59 2F 00 00 00 00 00 00
-
 ######### (non-Alchemist) Sage Elemental Converter #####
 ### Water = 8E 01 53 2F 00 00 00 00 00 00
 ### Fire = 8E 01 52 2F 00 00 00 00 00 00
@@ -147,10 +126,7 @@ end loop
 macro _b_R {
 set exclusive 1
 do talknpc 87 34 b b$.param1,$.param2 e
-do c @gstorage
-pause 1
-do storage add @inventory(Butterfly Wing)
-do storage close
+do autostorage
 pause 1
 }
 
@@ -169,10 +145,6 @@ pause 1
 do move payon_in02 82 36
 :startCheck
 do storage close
-pause 1
-do autostorage
-pause 1
-do c @gstorage
 pause 1
 
 if (@storamount(Butterfly Wing) < 1000 ) {
@@ -241,8 +213,6 @@ if (@storamount(Silver Arrow) < 20000 ) {
  goto startCheck
  }
 
-call _buy_ci
-
 do sell cancel
 do storage close
 do move 82 45
@@ -305,7 +275,6 @@ call _h_i
 call _s_e
 call _s_i
 call _buy_i
-call _create_potions
 call _ref_start
 do autostorage
 do conf lockMap pay_dun01
@@ -315,94 +284,7 @@ do move pay_dun00
 #do timeout macro_delay .1
 }
 
-macro _buy_ci {
-set exclusive 1
-:startCheck
-do autostorage
-pause 1
-do autostorage
-pause 2
-do c @gstorage
-pause 1
-if (@storamount(Empty Potion Bottle) < 1000 ) {
-  do storage close
-  call _b_R --19 2000
-  goto startCheck
- }
-
-if (@storamount(Scell) < 1000 ) {
-  do storage close
-  call _b_R --20 2000
-  goto startCheck
- }
-
-if (@storamount(Medicine Bowl) < 1000 ) {
-  do storage close
-  call _b_R --18 2000
-  goto startCheck
- }
-}
-
-macro _create_potions {
-set exclusive 1
-$lifs = _s_readFs("potionsFcreating.txt")
-$countI = _s_getItem("$lifs")
-$lifs = _s_delItem("$lifs")
-do storage close
-do c @gstorage
-pause 1
-while ($countI > 0) as loopA
- $item = _s_getItem("$lifs")
- $lifs = _s_delItem("$lifs")
-if ("$item" == "END") goto endCP
-:repeatCP
- if ($.sp < 100) goto endCP
- if ("$item" == "Blue Potion") {
-  if (@storage(Blue Herb) < 50 || @storage(Scell) < 50 || @storage(Empty Potion Bottle) < 50 || @storage(Medicine Bowl) < 50 ) goto endLoopA
-   do storage add Red Herb
-   do storage add Yellow Herb
-   do storage add White Herb
-   do storage get Potion Creation Guide
-   do storage get Blue Herb 100
-   do storage get Scell 100
-   do storage get Empty Potion Bottle 100
-   do storage get Medicine Bowl 100
-   do storage close
-   do c @storage
-   pause 1
-   do storage get Potion Creation Guide
-   pause 1
-   do storage close
-   while ($.sp > 5 && @inventory(Empty Potion Bottle) > 0 && @inventory(Blue Herb) > 0 && @inventory(Scell) > 0 && @inventory(Medicine Bowl) > 0 ) as loopSkill
-     do ss 228 10
-     pause 1
-     do send 8E 01 F9 01 00 00 00 00 00 00
-     pause 1
-    end loopSkill
-   do c @storage
-   pause 1
-   do storage add Potion Creation Guide
-   do storage close
-   do c @gstorage
-   pause 1
-   do storage add Blue Herb
-   do storage add Scell
-   do storage add Empty Potion Bottle
-   do storage add Medicine Bowl
-   do storage add Blue Potion
-   goto repeatCP
-  }
-  :endLoopA
-$countI--
-end loopA
-:endCP
-do c @storage
-pause 1
-do storage add Potion Creation Gude 1
-do storage close
-}
-
-automacro _Auto_GS {
+automacro _Auto_GStarde {
 exclusive 1
 delay 3
 timeout 6000
