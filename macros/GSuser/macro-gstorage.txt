@@ -1,7 +1,7 @@
 automacro _GStorage {
   timeout 2
   delay 1
-  inventory "Meat" < 11, "Butterfly Wing" < 2, "Fly Wing" < 3, "Awakening Potion" < 2, "White Potion" < 3
+  inventory "Meat" < 11, "Butterfly Wing" < 2, "Fly Wing" < 3, "Awakening Potion" < 2, "White Potion" < 3, "Blue Potion" < 3
   call {
     do autostorage
    }
