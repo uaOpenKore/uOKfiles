@@ -1,3 +1,6 @@
+Detailed setup instructions for the script, along with an explanation of how the script works, are described on our forum.
+[https://uaro.kiev.ua/forum/showthread.php?tid=37](https://uaro.kiev.ua/forum/showthread.php?tid=37)
+
 @gstorage service plugin
 
 It is assumed that Alchemist will be used, otherwise potion creation must be removed.
