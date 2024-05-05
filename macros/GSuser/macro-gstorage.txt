@@ -1,19 +1,9 @@
 automacro _GStorage {
   timeout 2
   delay 1
+  inventory "Meat" < 11, "Butterfly Wing" < 2, "Fly Wing" < 3, "Awakening Potion" < 2, "White Potion" < 3
   call {
-    if ( @invamount(Meat) < 11 ) goto AST
-#    if ( @invamount(White Potion) < 2 ) goto AST
-#    if ( @invamount(Blue Potion) < 2 ) goto AST
-    if ( @invamount(Fly Wing) < 3 ) goto AST
-    if ( @invamount(Butterfly Wing) < 2 ) goto AST
-#    if ( @invamount(Concentration Potion) < 2 ) goto AST
-    if ( @invamount(Awakening Potion) < 2 ) goto AST
-#    if ( @invamount() <  ) goto AST
-    goto ENDm
-    :AST
     do autostorage
-    :ENDm
    }
  }
 
