@@ -1,0 +1,30 @@
+#Example: list of equipments for salling
+Adventurer's Suit
+Bow [3]
+Chain [3]
+Club [3]
+Cutter [4]
+Egg Shell
+Fancy Flower
+Guisarme [2]
+Katana [4]
+Knife [3]
+Knife [4]
+Mace [4]
+Main Gauche [4]
+Skull Ring
+Spear [4]
+Stiletto
+Stiletto [2]
+Sunflower
+Transparent Head Protector
+Unicorn Horn
+Silver Ring
+Falchion [4]
+Blade [4]
+Dagger [3]
+Damascus [1]
+Glaive [2]
+Bomb Wick
+Stop Post
+Signpost

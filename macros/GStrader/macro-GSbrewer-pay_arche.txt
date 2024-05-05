@@ -1,0 +1,610 @@
+#>Potion Creation Guide
+#          Red Potion    = Empty Potion Bottle + Red Herb                                   : 8E 01 F5 01 00 00 00 00 00 00
+#          Yellow Potion = Empty Potion Bottle + Yellow Herb                                : 8E 01 F7 01 00 00 00 00 00 00
+#          White Potion  = Empty Potion Bottle + White Herb                                 : 8E 01 F8 01 00 00 00 00 00 00
+#          Blue Potion   = Empty Potion Bottle + Blue Herb         + Scell                  : 8E 01 F9 01 00 00 00 00 00 00
+#          Anodyne       = Empty Bottle        + Ment              + Alcohol                : 8E 01 5D 02 00 00 00 00 00 00
+#          Aloevera      = Empty Bottle        + Honey             + Aloe                   : 8E 01 5E 02 00 00 00 00 00 00
+#          Embryo        = Glass Tube          + Seed of Life    + Morning Dew of Yggdrasil : ???
+#>Condensed Potion Creation Guide
+#    Condensed Red Potion = Empty Test Tube    + Red Potion        + Cactus Needle          : 8E 01 21 02 00 00 00 00 00 00
+# Condensed Yellow Potion = Empty Test Tube    + Yellow Potion     + Mole Whiskers          : 8E 01 22 02 00 00 00 00 00 00
+#  Condensed White Potion = Empty Test Tube    + White Potion      + Witched Starsand       : 8E 01 23 02 00 00 00 00 00 00
+#>Alcohol Creation Guide
+#                 Alcohol = Empty Bottle       + Empty Test Tube   + Stem + Poison Spore    : 8E 01 CA 03 00 00 00 00 00 00
+#>Bottle Grenade Creation Guide
+#          Bottle Grenade = Empty Bottle       + Alcohol           + Fabric                 : 8E 01 DF 1B 00 00 00 00 00 00
+#>Acid Bottle Creation Guide
+#             Acid Bottle = Empty Bottle       + Immortal Heart                             : 8E 01 E0 1B 00 00 00 00 00 00
+#>Plant Bottle Creation Guide
+#           Plant Bottle = Empty Bottle        + Maneater Blossom                           : 8E 01 E1 1B 00 00 00 00 00 00
+#>Marine Sphere Creation Guide
+#   Marine Sphere Bottle = Empty Bottle        + Tendon           + Detonator               : 8E 01 E2 1B 00 00 00 00 00 00
+#>Glistening Coat Creation Guide
+#        Glistening Coat = Empty Bottle        + Heart of Mermaid + Alcohol + Zenorc's Fang : 8E 01 E3 1B 00 00 00 00 00 00
+#>Elemental Potion Creation Guide
+#       Fireproof Potion = Empty Potion Bottle + Red Gemstone     + Frill                   : 8E 01 52 2F 00 00 00 00 00 00
+#       Coldproof Potion = Empty Potion Bottle + Blue Gemstone    + Heart of Mermaid        : 8E 01 53 2F 00 00 00 00 00 00
+#      Earthproof Potion = Empty Potion Bottle + Yellow Gemstone  + Large Jellopy           : 8E 01 54 2F 00 00 00 00 00 00
+#    Thunderproof Potion = Empty Potion Bottle + Blue Gemstone    + Moth Dust               : 8E 01 55 2F 00 00 00 00 00 00
+
+sub _s_readFs {
+ my ($fileN) = @_;
+ my $lll;
+ my @aa = ();
+ if (open(FILE, "<:utf8", Settings::getControlFilename("$fileN"))) {
+  while (<FILE>) {
+  s/^\r//g;s/\x{FEFF}//g; chomp;
+  if (/^[0-9a-zA-Z]/) {
+   push @aa, $_;
+   if (!$lll) {$lll = $_; next;}
+   $lll = $lll . "," . $_ ;
+   next ;
+   }
+  }
+  close FILE
+ }
+return @aa . "," . $lll;
+}
+
+sub _s_getItem {
+ my ($str) = @_;
+return substr($str,0,index($str,","));
+}
+
+sub _s_delItem {
+ my ($str) = @_;
+return substr($str,(index($str,",") +1 ));
+}
+
+macro _h_i {
+set exclusive 1
+$lifs = _s_readFs("itemsFholding.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do c @gstorage
+pause 1
+while ($countI > 0) as loopA
+ $item = _s_getItem("$lifs")
+ $lifs = _s_delItem("$lifs")
+ while (@storamount($item) > 29000) as loopB
+   while ( @eval($.weight/$.maxweight) < "0.8" && @storamount($item) > 28000) as loopC
+    do storage get @storage($item) 90
+   end loopC
+  do storage close
+  do talknpc 140 124 s e
+  do sell @inventory($item) @invamount($item)
+  do sell done
+  do c @gstorage
+  pause 1
+ end loopB
+ $countI--
+end loopA
+do storage close
+}
+
+macro _s_i {
+set exclusive 1
+$lifs = _s_readFs("itemsFselling.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do c @gstorage
+pause 1
+while ($countI > 0) as loopA
+ $item = _s_getItem("$lifs")
+ $lifs = _s_delItem("$lifs")
+ while (@storamount($item) > 0) as loopB
+   while ( @eval($.weight/$.maxweight) < "0.8" && @storamount($item) > 0) as loopC
+    do storage get @storage($item) 90
+   end loopC
+  do storage close
+  do talknpc 140 124 s e
+  do sell @inventory($item) @invamount($item)
+  do sell done
+  do c @gstorage
+  pause 1
+ end loopB
+ $countI--
+end loopA
+do storage close
+}
+
+macro _s_e {
+set exclusive 1
+$lifs = _s_readFs("equipsFselling.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do c @gstorage
+pause 1
+while ($countI > 0) as loopA
+ $item = _s_getItem("$lifs")
+ $lifs = _s_delItem("$lifs")
+ while (@storage($item) > "-1") as loopB
+    do storage get @storage($item)
+  do storage close
+  do talknpc 140 124 s e
+  do sell @inventory($item) @invamount($item)
+  do sell done
+  do c @gstorage
+  pause 1
+ end loopB
+ $countI--
+end loopA
+do storage close
+}
+
+macro _b_meat {
+set exclusive 1
+$c = 30
+while ($c > 0) as loop
+do talknpc 140 124 b b0,150 e
+do c @gstorage
+pause 1
+do storage add @inventory(Meat)
+do storage close
+pause 1
+$c--
+end loop
+}
+
+macro _b_R {
+set exclusive 1
+do talknpc 87 34 b b$.param1,$.param2 e
+do autostorage
+pause 1
+}
+
+macro _buy_i {
+set exclusive 1
+:startCheckFirst
+do c @gstorage
+pause 1
+if (@storamount(Meat) < 20000 ) {
+ do storage close
+ call _b_meat
+ goto startCheckFirst
+ }
+do tele 2
+pause 1
+do move payon_in02 82 36
+:startCheck
+do storage close
+pause 1
+
+if (@storamount(Butterfly Wing) < 1000 ) {
+ do storage close
+ call _b_R --14 300
+ goto startCheck
+ }
+
+if (@storamount(Fly Wing) < 2000 ) {
+ do storage close
+ call _b_R --13 500
+ goto startCheck
+ }
+
+if (@storamount(Awakening Potion) < 200 ) {
+ do storage close
+ call _b_R --17 100
+ goto startCheck
+ }
+
+if (@storamount(Concentration Potion) < 200 ) {
+ do storage close
+ call _b_R --16 100
+ goto startCheck
+ }
+
+if (@storamount(Fire Arrow Quiver) < 1000 ) {
+ do storage close
+ call _b_R --2 100
+ goto startCheck
+ }
+
+if (@storamount(Crystal Arrow Quiver) < 1000 ) {
+ do storage close
+ call _b_R --3 100
+ goto startCheck
+ }
+
+if (@storamount(Wind Arrow Quiver) < 1000 ) {
+ do storage close
+ call _b_R --4 100
+ goto startCheck
+ }
+
+if (@storamount(Stone Arrow Quiver) < 1000 ) {
+ do storage close
+ call _b_R --5 100
+ goto startCheck
+ }
+
+if (@storamount(Magnifier) < 1000 ) {
+ do storage close
+ call _b_R --6 400
+ goto startCheck
+ }
+
+if (@storamount(Arrow) < 20000 ) {
+ do storage close
+ call _b_R --0 4000
+ goto startCheck
+ }
+
+if (@storamount(Silver Arrow) < 20000 ) {
+ do storage close
+ call _b_R --1 4000
+ goto startCheck
+ }
+
+call _buy_ci
+
+do sell cancel
+do storage close
+do move 82 45
+}
+
+macro _ref_start {
+set exclusive 1
+do tele 2
+pause 1
+do move payon 151 175
+call _ref_i --Oridecon
+pause 1
+call _ref_i --Elunium
+do tele 2
+pause 1
+}
+
+macro _ref_i {
+set exclusive 1
+do c @gstorage
+pause 1
+while ( @storamount(Rough $.param1) > 4 && @storamount($.param1) < 29000 ) as loopA
+do storage close
+pause 1
+do c @gstorage
+pause 1
+do storage get @storage(Rough $.param1) 100
+do storage close
+pause 1
+while ( @invamount(Rough $.param1) > 4 ) as loopB
+log loopB 1
+ if ( "$.param1" == "Oridecon" ) {
+log loopB 2
+   do talknpc 137 178 r0
+  }else{
+log loopB 3
+   do talknpc 137 178 r1
+  }
+log loopB 4
+end loopB
+do c @gstorage
+pause 1
+do storage add @inventory($.param1)
+do storage add @inventory(Rough $.param1)
+do storage close
+pause 1
+end loopA
+}
+
+macro StarGS {
+do timeout macro_delay .01
+set exclusive 1
+do conf lockMap pay_arche
+pause 1
+do tele 2
+pause 1
+do move pay_arche 109 134
+do autostorage
+call _h_i
+call _s_e
+call _s_i
+call _buy_i
+call _create_potions
+call _ref_start
+do autostorage
+do conf lockMap pay_dun01
+do tele 2
+pause 2
+do move pay_dun00
+#do timeout macro_delay .1
+}
+
+macro _buy_ci {
+set exclusive 1
+:startCheck
+do autostorage
+pause 1
+do autostorage
+pause 2
+do c @gstorage
+pause 1
+if (@storamount(Empty Potion Bottle) < 1000 ) {
+  do storage close
+  call _b_R --19 2000
+  goto startCheck
+ }
+
+if (@storamount(Scell) < 1000 ) {
+  do storage close
+  call _b_R --20 2000
+  goto startCheck
+ }
+
+if (@storamount(Medicine Bowl) < 1000 ) {
+  do storage close
+  call _b_R --18 2000
+  goto startCheck
+ }
+}
+
+macro _create_potions {
+set exclusive 1
+$lifs = _s_readFs("potionsFcreating.txt")
+$countI = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+do storage close
+pause 1
+
+:nextCP
+do c @gstorage
+pause 1
+$item = _s_getItem("$lifs")
+$lifs = _s_delItem("$lifs")
+
+$iBowl = Medicine Bowl
+$iBook = none
+$iBottle = none
+$iHerb = none
+$iAdd1 = none
+$iAdd2 = none
+$iSendPack = none
+if ( "$item" == "END" || "$item" == "" ) goto endBrew
+
+if ("$item" == "Red Potion") {
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Red Herb
+  $iSendPack = 8E 01 F5 01 00 00 00 00 00 00
+ }
+
+if ("$item" == "Yellow Potion") {
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Yellow Herb
+  $iSendPack = 8E 01 F7 01 00 00 00 00 00 00
+ }
+
+if ("$item" == "White Potion") {
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = White Herb
+  $iSendPack = 8E 01 F8 01 00 00 00 00 00 00
+ }
+
+if ("$item" == "Blue Potion") {
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Blue Herb
+  $iAdd1 = Scell
+  $iSendPack = 8E 01 F9 01 00 00 00 00 00 00
+ }
+
+if ("$item" == "Anodyne") {
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Ment
+  $iAdd1 = Alcohol
+  $iSendPack = 8E 01 5D 02 00 00 00 00 00 00
+ }
+ 
+if ("$item" == "Aloevera") {
+  $iBook = Potion Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Honey
+  $iAdd1 = Aloe
+  $iSendPack = 8E 01 5E 02 00 00 00 00 00 00
+ }
+ 
+if ("$item" == "Embryo") {
+  $iBook = Potion Creation Guide
+  $iBottle = Glass Tube
+  $iHerb = Seed of Life
+  $iAdd1 = Morning Dew of Yggdrasil
+  $iSendPack = none
+ }
+
+if ("$item" == "Condensed Red Potion") {
+  $iBook = Condensed Potion Creation Guide
+  $iBottle = Empty Test Tube
+  $iHerb = Red Potion
+  $iAdd1 = Cactus Needle
+  $iSendPack = 8E 01 21 02 00 00 00 00 00 00
+ }
+
+if ("$item" == "Condensed Yellow Potion") {
+  $iBook = Condensed Potion Creation Guide
+  $iBottle = Empty Test Tube
+  $iHerb = Yellow Potion
+  $iAdd1 = Mole Whiskers
+  $iSendPack = 8E 01 22 02 00 00 00 00 00 00
+ }
+
+if ("$item" == "Condensed White Potion") {
+  $iBook = Condensed Potion Creation Guide
+  $iBottle = Empty Test Tube
+  $iHerb = White Potion
+  $iAdd1 = Witched Starsand
+  $iSendPack = 8E 01 23 02 00 00 00 00 00 00
+ }
+
+if ("$item" == "Alcohol") {
+  $iBook = Alcohol Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Empty Test Tube
+  $iAdd1 = Stem
+  $iAdd2 = Poison Spore
+  $iSendPack = 8E 01 CA 03 00 00 00 00 00 00
+ }
+
+if ("$item" == "Bottle Grenade") {
+  $iBook = Bottle Grenade Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Alcohol
+  $iAdd1 = Fabric
+  $iSendPack = 8E 01 DF 1B 00 00 00 00 00 00
+ }
+
+if ("$item" == "Acid Bottle") {
+  $iBook = Acid Bottle Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Immortal Heart
+  $iSendPack = 8E 01 E0 1B 00 00 00 00 00 00
+ }
+
+if ("$item" == "Plant Bottle") {
+  $iBook = Plant Bottle Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Maneater Blossom
+  $iSendPack = 8E 01 E1 1B 00 00 00 00 00 00
+ }
+
+if ("$item" == "Marine Sphere Bottle") {
+  $iBook = Marine Sphere Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Tendon
+  $iAdd1 = Detonator
+  $iSendPack = 8E 01 E2 1B 00 00 00 00 00 00
+ }
+
+if ("$item" == "Glistening Coat") {
+  $iBook = Glistening Coat Creation Guide
+  $iBottle = Empty Bottle
+  $iHerb = Heart of Mermaid
+  $iAdd1 = Alcohol
+  $iAdd2 = Zenorc's Fang
+  $iSendPack = 8E 01 E3 1B 00 00 00 00 00 00
+ }
+
+if ("$item" == "Fireproof Potion") {
+  $iBook = Elemental Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Red Gemstone
+  $iAdd1 = Frill
+  $iSendPack = 8E 01 52 2F 00 00 00 00 00 00
+ }
+
+if ("$item" == "Coldproof Potion") {
+  $iBook = Elemental Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Blue Gemstone
+  $iAdd1 = Heart of Mermaid
+  $iSendPack = 8E 01 53 2F 00 00 00 00 00 00
+ }
+
+if ("$item" == "Earthproof Potion") {
+  $iBook = Elemental Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Yellow Gemstone
+  $iAdd1 = Large Jellopy
+  $iSendPack = 8E 01 54 2F 00 00 00 00 00 00
+ }
+
+if ("$item" == "Thunderproof Potion") {
+  $iBook = Elemental Potion Creation Guide
+  $iBottle = Empty Potion Bottle
+  $iHerb = Blue Gemstone
+  $iAdd1 = Moth Dust
+  $iSendPack = 8E 01 55 2F 00 00 00 00 00 00
+ }
+
+if ( "$iSendPack" == "none" || "iBook" == "none" ) goto endCP
+
+do c @gstorage
+pause 1
+
+:repeatCP
+ if ($.sp < 100) goto endBrew
+
+if ( @storamount($iBowl) < 1 ) goto endCP 
+  do storage get $iBowl 100
+
+if ( @storamount($iBottle) < 1 ) goto endCP 
+  do storage get $iBottle 100
+
+if ( "$iAdd1" != "none" ) {
+  if ( @storamount($iAdd1) < 1 ) goto endCP
+  do storage get $iAdd1 100
+ }
+
+if ( "$iAdd2" != "none" ) {
+  if ( @storamount($iAdd2) < 1 ) goto endCP
+  do storage get $iAdd2 100
+ }
+
+if ( @storamount($iHerb) < 1 ) goto endCP
+do storage get $iHerb 100
+if ( @invamount($iHerb) < 100 ) {
+  $n0 = @invamount($iHerb)
+  $n1 = @eval(100 - $n0)
+  if ( @storamount($iHerb) > 1 ) do storage get $iHerb $n1
+ }
+
+if ( @invamount($iBook) < 1 && @storamount($iBook) > 0 ) do storage get $iBook
+do storage close
+pause 1
+if ( @invamount($iBook) < 1 ) {
+  do c @storage
+  pause 1
+  do storage get $iBook
+  do storage close
+ }
+
+if ( @invamount($iBook) < 1 ) goto endCP
+
+while ($.sp > 5 && @invamount($iBottle) > 0 && @invamount($iHerb) > 0 && ( @invamount($iAdd1) > 0 || "$iAdd1" == "none" ) && ( @invamount($iAdd2) > 0 || "$iAdd2 == "none" ) && @invamount($iBowl) > 0 ) as loopSkill
+  do ss 228 10
+  pause 1
+  do send $iSendPack
+  pause 1
+ end loopSkill
+
+if ( @invamount($iBook) > 0 ) {
+  do c @storage
+  pause 1
+  do storage add $iBook
+  do storage close
+  pause 1
+ }
+
+do c @gstorage
+pause 1
+if ( @invamount($item) > 0 ) do storage add $item
+if ( @invamount($iHerb) > 0 ) do storage add $iHerb
+if ( @invamount($iBowl) > 0 ) do storage add $iBowl
+if ( @invamount($iAdd1) > 0 ) do storage add $iAdd1
+if ( @invamount($iAdd2) > 0 ) do storage add $iAdd2
+if ( @invamount($iBottle) > 0 ) do storage add $iBottle
+goto repeatCP
+
+:endCP
+storage close
+pause 1
+do autostorage
+pause 1
+goto nextCP
+
+:endBrew
+storage close
+pause 1
+do autostorage
+
+}
+
+automacro _Auto_GStrade {
+exclusive 1
+delay 3
+timeout 6000
+call StarGS
+}

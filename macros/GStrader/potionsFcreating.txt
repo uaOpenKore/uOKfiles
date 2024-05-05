@@ -1,0 +1,22 @@
+#The list brews potion priority. END is used to halt creation.
+Blue Potion
+END
+White Potion
+Yellow Potion
+Anodyne
+Aloevera
+Embryo
+Condensed Red Potion
+Condensed Yellow Potion
+Condensed White Potion
+Alcohol
+Bottle Grenade
+Acid Bottle
+Plant Bottle
+Marine Sphere Bottle
+Glistening Coat
+Fireproof Potion
+Coldproof Potion
+Earthproof Potion
+Thunderproof Potion
+Red Potion
