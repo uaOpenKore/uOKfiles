@@ -8,5 +8,7 @@ automacro _GStorage {
 
 automacro _GS_close {
   timeout 60
-  call do storage close
+  call {
+   do storage close
+  }
  }
