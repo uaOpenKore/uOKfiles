@@ -525,7 +525,8 @@ do c @gstorage
 pause 1
 
 :repeatCP
- if ($.sp < 100) goto endBrew
+if ($.sp < 100) goto endBrew
+if ( @storamount($item) > 29000 ) goto endCP 
 
 if ( @storamount($iBowl) < 1 ) goto endCP 
   do storage get $iBowl 100
