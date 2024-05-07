@@ -1,0 +1,8 @@
+automacro autoLoot {
+  console /You are now in the game/
+  timeout 600
+  delay 4
+  call {
+    do c @autoloot
+   }
+ }

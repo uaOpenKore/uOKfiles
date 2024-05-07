@@ -1,0 +1,8 @@
+#macro work only with busCommand plugin!
+automacro _GSidied {
+  timeout 60
+  status dead
+  call {
+    do bus all tele 2
+   }
+ }

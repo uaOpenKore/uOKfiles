@@ -1,0 +1,39 @@
+#add in config.txt
+doCommand macro _oneStep {
+  notOnAction attack, sitAuto, move, mapRoute, follow
+  notInTown 1
+  notWhileSitting 1
+  whenFollowing 0
+  timeout 60
+ }
+
+#macro block
+macro _oneStep {
+   if ( $oldMap == $.map && $oldPos = $.pos ) {
+     if ($oldStp == 0 || $oldStp != 1 || $oldStp != 2 || $oldStp != 3 ) {
+       do north
+       $oldStp = 1
+      }
+    }
+   if ( $oldMap == $.map && $oldPos = $.pos ) {
+     if ($oldStp == 1 ) {
+       do west
+       $oldStp = 2
+      }
+    }
+   if ( $oldMap == $.map && $oldPos = $.pos ) {
+     if ($oldStp == 2 ) {
+       do south
+       $oldStp = 3
+      }
+    }
+   if ( $oldMap == $.map && $oldPos = $.pos ) {
+     if ($oldStp == 3 ) {
+       do east
+       $oldStp = 0
+      }
+    }
+   $oldMap = $.map
+   $oldPos = $.pos
+.
+}

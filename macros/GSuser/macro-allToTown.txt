@@ -1,0 +1,9 @@
+automacro _allToTown {
+ hp < 33%
+ timeout 60
+ call {
+   do bus all tele 2
+   pause 3
+   do bus all tele 2
+  }
+ }
