@@ -35,5 +35,4 @@ macro _oneStep {
     }
    $oldMap = $.map
    $oldPos = $.pos
-.
 }
