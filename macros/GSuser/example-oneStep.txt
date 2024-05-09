@@ -30,8 +30,14 @@ macro _oneStep {
        do east
        $oldStp = 0
       }
-    }else{
+    }
    $oldPos = $.pos
-   if ($oldStp < 0 ) $oldStp = 0
-  }
+}
+
+automacro _var_oldStp {
+ var oldStp unset
+ timeout 500
+ call {
+  $oldStp = 0
+ }
 }
