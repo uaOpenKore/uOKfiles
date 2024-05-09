@@ -1,7 +1,7 @@
 #add in config.txt
 doCommand macro _oneStep {
   notOnAction attack, sitAuto, move, mapRoute, follow
-  notInTown 1
+#  notInTown 1
   notWhileSitting 1
   whenFollowing 0
   timeout 60
