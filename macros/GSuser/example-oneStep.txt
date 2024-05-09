@@ -12,17 +12,21 @@ macro _oneStep {
    if ( $oldPos == $.pos ) {
      if ($oldStp == 0 ) {
        do north
+       do north
        $oldStp = 1
       }
    if ($oldStp == 1 ) {
+       do west
        do west
        $oldStp = 2
       }
    if ($oldStp == 2 ) {
        do south
+       do south
        $oldStp = 3
       }
     if ($oldStp == 3 ) {
+       do east
        do east
        $oldStp = 0
       }
