@@ -1,0 +1,9 @@
+automacro _gsupdate {
+timeout 125
+delay 20
+call {
+  do c @gstorage
+  pause 0.5
+  do storage close
+ }
+}
