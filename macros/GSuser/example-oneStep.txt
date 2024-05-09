@@ -9,30 +9,25 @@ doCommand macro _oneStep {
 
 #macro block
 macro _oneStep {
-   if ( $oldMap == $.map && $oldPos = $.pos ) {
-     if ($oldStp == 0 || $oldStp != 1 || $oldStp != 2 || $oldStp != 3 ) {
+   if ( $oldPos == $.pos ) {
+     if ($oldStp == 0 ) {
        do north
        $oldStp = 1
       }
-    }
-   if ( $oldMap == $.map && $oldPos = $.pos ) {
-     if ($oldStp == 1 ) {
+   if ($oldStp == 1 ) {
        do west
        $oldStp = 2
       }
-    }
-   if ( $oldMap == $.map && $oldPos = $.pos ) {
-     if ($oldStp == 2 ) {
+   if ($oldStp == 2 ) {
        do south
        $oldStp = 3
       }
-    }
-   if ( $oldMap == $.map && $oldPos = $.pos ) {
-     if ($oldStp == 3 ) {
+    if ($oldStp == 3 ) {
        do east
        $oldStp = 0
       }
-    }
-   $oldMap = $.map
+    }else{
    $oldPos = $.pos
+   if ($oldStp < 0 ) $oldStp = 0
+  }
 }
