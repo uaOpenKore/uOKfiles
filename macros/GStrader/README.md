@@ -1,3 +1,5 @@
+Main thread: Swarm of OpenKore bots (Рой ботов) [http://uaro.kiev.ua/forum/showthread.php?tid=51](http://uaro.kiev.ua/forum/showthread.php?tid=51)
+
 Detailed setup instructions for the script, along with an explanation of how the script works, are described on our forum.
 [https://uaro.kiev.ua/forum/showthread.php?tid=37](https://uaro.kiev.ua/forum/showthread.php?tid=37)
 
