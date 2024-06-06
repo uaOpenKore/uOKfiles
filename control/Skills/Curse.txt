@@ -1,0 +1,9 @@
+useSelf_skill Blessing {
+	lvl 10
+	whenStatusActive Cursed
+}
+
+partySkill Blessing {
+	lvl 10
+	target_whenStatusActive Cursed
+}
