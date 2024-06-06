@@ -5,4 +5,10 @@ partySkill Angelus {
 	target_whenStatusInactive Angelus
 #	isSelfSkill 1
 }
+
+useSelf_skill Angelus {
+	lvl 10
+	sp > 10%
+	whenStatusInactive Angelus
+}
 #############################
