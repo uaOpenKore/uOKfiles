@@ -1,8 +1,8 @@
 [uaRO]
 ip play.uaro.kiev.ua
 port 16900
-master_version 0
-version 19
+master_version 8
+version 20
 
 #for OpenKore 2.0.x use serverType 9
 #serverType 9
